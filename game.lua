@@ -2,6 +2,9 @@ local gGame = {}
 
 function gGame:init()
 	gameWorld = world:create("game")
+	relations = 20
+	ego = 20
+	possessions = 20
 end
 
 function gGame:enter()
