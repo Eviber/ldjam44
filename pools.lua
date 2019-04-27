@@ -18,6 +18,7 @@ wishes =
       president = "to be elected president";
       death = "to die" --ex: i want XXX to die
     }
+}
 
 prices =
 {

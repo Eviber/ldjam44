@@ -4,13 +4,16 @@ local World = {
 	allSystems = {}
 }
 
+local gameSys = require "gameSystems"
+
 function World:create(type)
 	if type == "game" then
-		self.allComponents = {}
+		self.allComponents = require "gameComponents"
 		self.allSystems = require "gameSystems"
 	end
 	
 end
+
 
 function World:newEntity(components)
 	local newEntity = {
