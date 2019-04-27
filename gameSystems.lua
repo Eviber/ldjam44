@@ -1,5 +1,7 @@
 local GameSystems = {}
 
+local filters = require "filters"
+
 --[[
 Un système doit contenir impérativement:
 - une fonction "self.filter" prenant en argument une entity et appelant une des fonctions du fichier filters.lua

@@ -1,7 +1,7 @@
 local gGame = {}
 
 function gGame:init()
-	gameWorld = world:create()
+	gameWorld = world:create("game")
 end
 
 function gGame:enter()
