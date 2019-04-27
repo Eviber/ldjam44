@@ -20,7 +20,7 @@ function love.load()
 	math.randomseed(os.time())
 	love.keyboard.setKeyRepeat(false)
 	Gamestate.registerEvents()
-	W, H = love.window.getMode()
+	W, H = 1920, 1080
 
 	loadassets()
 
