@@ -1,5 +1,4 @@
 Gamestate = require "hump.gamestate"
-world = require "world"
 TLfres = require "tlfres"
 
 sfx = require "sfx"
