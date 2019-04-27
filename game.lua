@@ -40,7 +40,7 @@ function drawdesk()
 end
 
 function gGame:draw()
-	TLfres.beginRendering(1920, 1080, true)
+	TLfres.beginRendering(1920, 1080)
 	drawbg()
 	drawcontract()
 	drawsatan()
