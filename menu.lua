@@ -16,7 +16,7 @@ function gMenu:update(dt)
 end
 
 function gMenu:draw()
-	TLfres.beginRendering(1366, 768)
+	TLfres.beginRendering(1920, 1080)
   love.graphics.rectangle("fill", button.x, button.y, button.w, button.h)
 	love.graphics.rectangle("fill", button2.x, button2.y, button2.w, button2.h)
   love.graphics.rectangle("fill", button3.x, button3.y, button3.w, button3.h)
