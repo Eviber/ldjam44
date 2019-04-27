@@ -1,9 +1,9 @@
 local GameComponents = {
 	
-	resource = {}
-	money = {}
-	love = {}
-	power = {}
+	resource = {},
+	money = {},
+	love = {},
+	power = {},
 	value = {}
 	
 	
