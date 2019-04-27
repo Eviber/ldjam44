@@ -4,6 +4,7 @@ function gGame:init()
 	relations = 20
 	ego = 20
 	possessions = 20
+	cHuman = {wish, }
 end
 
 function gGame:enter()
@@ -39,7 +40,7 @@ function drawdesk()
 end
 
 function gGame:draw()
-	TLfres.beginRendering(1920, 1080)
+	TLfres.beginRendering(1920, 1080, true)
 	drawbg()
 	drawcontract()
 	drawsatan()
