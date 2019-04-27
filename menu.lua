@@ -1,8 +1,8 @@
 local Class = require"Class"
 
-button = Button:create(800, 100, 300, 100)
-button2 = Button:create(800, 300, 300, 100)
-button3 = Button:create(800, 500, 300, 100)
+button = Button:create(1400, 300, 300, 100)
+button2 = Button:create(1400, 500, 300, 100)
+button3 = Button:create(1400, 700, 300, 100)
 
 local gMenu = {}
 
@@ -27,6 +27,7 @@ function gMenu:mousepressed(x, y)
 end
 
 function gMenu:mousereleased(x, y, click_type)
+  x,y = TLfres.getMousePosition(1920,1080)
  if button:isclicked(x,y) == true then
     Gamestate.switch(gGame)
   elseif button2:isclicked(x,y) == true then
