@@ -3,8 +3,8 @@ local Filters = {}
 function filter(entity, components)
 	local pluckedEntityComponents = 0
 	--local matchRequirements = true 
-	for requiredComponentName, component in ipairs(components) do
-		if entity.components[requiredComponentName] ~= nil then
+	for requiredComponentName, component in pairs(components) do
+		if entity.components[requiredComponentName] == true then
 			pluckedEntityComponents = pluckedEntityComponents + 1
 		end
 	end

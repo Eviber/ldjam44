@@ -35,7 +35,7 @@ end
 
 function World:newSystem(system)
 	--system should be a string
-	self.allSystems[#self.allSystems] = system
+	self.allSystems[#self.allSystems + 1] = system
 end
 
 

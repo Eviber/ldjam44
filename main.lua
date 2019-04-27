@@ -6,5 +6,9 @@ isDown = love.keyboard.isDown
 
 
 function love.load()
-	gameWorld = world.create()
+	gameWorld = world:create()
+end
+
+function love.update(dt)
+	world:update(dt)
 end
