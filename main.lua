@@ -5,6 +5,6 @@ lg = love.graphics
 isDown = love.keyboard.isDown
 
 
-love.load()
+function love.load()
 	gameWorld = world.create()
 end
