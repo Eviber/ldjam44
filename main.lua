@@ -13,6 +13,10 @@ lg = love.graphics
 isDown = love.keyboard.isDown
 
 function loadassets()
+	imgs = {
+		--img      = lg.newImage("path/to/img"),
+	}
+
 	sfx.load()
 	vfx.load()
 end
