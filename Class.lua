@@ -1,4 +1,4 @@
-Button = { x, y, w = 300, h = 100, f}
+Button = { x, y, w = 300, h = 100, img1, img2 ,f}
 
 Button.__index = Button
 
@@ -10,6 +10,8 @@ function Button:create(x, y, w, h, f)
   btn.w = w
   btn.h = h
   btn.clicked = 0
+  btn.img1 = "/Images/Bouton.jpg"
+  btn.img2 = "/Images/Bouton2.jpg"
   btn.f = f
   return btn
 end
