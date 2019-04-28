@@ -3,8 +3,12 @@ Human = {wish, appearance = nil, toRemove = false}
 
 Human.__index = Human
 
+local function rdtb(tbl)
+	return (tbl[math.random(#tbl)])
+end
+
 local function getwish()
-	wishtype = wishesPool[math.random(#wishesPool)]
+	return rdtb(rdtb(wishesPool))
 end
 
 function Human:create(appearance)
