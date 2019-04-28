@@ -39,15 +39,31 @@ function drawdesk()
 	lg.rectangle("fill", W - 550, H - 150, 300, 100)
 end
 
+function drawclient()
+	lg.setColor(90/255, 90/255, 90/255)
+	lg.rectangle("fill", W - 700, H - 300, 100, 250)
+end
+
+function drawtruc()
+	lg.setColor(226/255,67/255,75/255)
+	lg.rectangle("fill", W - 700, 50, 100, 400)
+	lg.setColor(0/255,111/255,158/255)
+	lg.rectangle("fill", W - 500, 50, 100, 400)
+	lg.setColor(134/255,192/255,106/255)
+	lg.rectangle("fill", W - 300, 50, 100, 400)
+end
+
 function gGame:draw()
 	TLfres.beginRendering(1920, 1080)
 	drawbg()
 	drawcontract()
 	drawsatan()
 	drawdesk()
+	drawclient()
+	drawtruc()
+	vfx.draw()
 	lg.setColor(1, 1, 1)
 	lg.print(cHuman.wish[1])
-	vfx.draw()
 	TLfres.endRendering({0,1,0,1})
 end
 
