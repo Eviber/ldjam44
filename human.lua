@@ -1,12 +1,15 @@
-local Human = {}
 require "pools"
+Human = {wish, appearance = nil, toRemove = false}
 
-function Human:new_human()
-	human = {}
+Human.__index = Human
+
+function Human:create(wish, appearance)
+	local hooman = {}
+	setmetatable(hooman, Human)
 	human.wish = wishesPool[math.random(#wishesPool)]
-	human.appearance = {}
-	human.toRemove = false
-	return human
+	human.appearance = appearance
+	human.toRemove = toRemove
+	return hooman
 end
 
 

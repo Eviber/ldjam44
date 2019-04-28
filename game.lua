@@ -4,7 +4,7 @@ require "pools"
 
 function gGame:init()
 	resources = {relations = 20, ego = 20, possessions = 20}
-	cHuman = Human:new_human()
+	cHuman = Human:create()
 end
 
 function gGame:enter()
