@@ -11,6 +11,7 @@ gPause = require "pause"
 
 lg = love.graphics
 isDown = love.keyboard.isDown
+rd = math.random
 
 function loadassets()
 	imgs = {

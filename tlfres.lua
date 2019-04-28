@@ -39,6 +39,7 @@ function TLfres.getScale(width, height)
       height = height or currentlyRendering[2]
    end
    local w, h = lwGetMode()
+   print(w,h)
    return min(w/width, h/height)
 end
  
