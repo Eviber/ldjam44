@@ -1,4 +1,6 @@
 require "pools"
+require "name"
+
 Human = {wish, items, appearance = nil, toRemove = false}
 
 Human.__index = Human
@@ -38,7 +40,10 @@ function Human:create(appearance)
 	local hooman = {}
 	setmetatable(hooman, Human)
 	hooman.wish = getwish()
+	hooman.name = gibName()
+	print("Name: " .. hooman.name)
 	hooman.items = getItems()
+
 	hooman.appearance = appearance
 	hooman.toRemove = toRemove
 	return hooman
