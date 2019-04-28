@@ -26,7 +26,9 @@ end
 
 
 function gGame:update(dt)
-
+	if cHuman.toRemove then
+		cHuman = Human:create()
+	end
 end
 
 function drawbg()
