@@ -13,13 +13,16 @@ local function getwish()
 	return rdtb(rdtb(wishesPool))
 end
 
---[[
 local function sortitems(items)
 	local function s(a,b)
+		if (a.i.cat == b.i.cat) then
+			return (a.i.str < b.i.str)
+		else
+			return (a.i.cat < b.i.cat)
+		end
 	end
 	table.sort(items, s)
 end
-]]
 
 local function getItems()
 	local items = {}
@@ -30,7 +33,7 @@ local function getItems()
 			check = false,
 		}
 	end
-	--sortitems(items)
+	sortitems(items)
 	for i = 1, #pricesPool do
 		if items[i] then
 			print(items[i].i.str, items[i].n)
