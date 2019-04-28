@@ -30,7 +30,7 @@ local function getItems()
 			check = false,
 		}
 	end
-	sortitems(items)
+	--sortitems(items)
 	for i = 1, #pricesPool do
 		if items[i] then
 			print(items[i].i.str, items[i].n)
