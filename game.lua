@@ -1,3 +1,4 @@
+
 local gGame = {}
 local spawned = 0
 
@@ -9,6 +10,7 @@ function gGame:init()
 end
 
 function gGame:enter()
+    fire:start()
 end
 
 function gGame:keypressed(key, scancode, isrepeat)
@@ -16,12 +18,13 @@ function gGame:keypressed(key, scancode, isrepeat)
 		Gamestate.switch(gPause)
   elseif scancode == "return" then
     spawned = 1
-  elseif scancode == "backspace" then
+ elseif scancode == "backspace" then
     spawned = 0
-  end
+   end
 end
 
 function gGame:update(dt)
+    fire:update(dt)
 end
 
 function drawground()
@@ -81,7 +84,7 @@ end
 
 function gGame:draw()
 	TLfres.beginRendering(1920, 1080)
-	drawbg()
+  drawbg()
   drawblue()
   drawred()
   drawgreen()
@@ -94,7 +97,7 @@ function gGame:draw()
   drawcontract()
   drawcontract_shadow()
   drawclient()
---	vfx.draw()
+ -- vfx:draw()
 	TLfres.endRendering()
 end
 
