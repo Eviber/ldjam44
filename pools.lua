@@ -18,25 +18,27 @@ wishesPool =
     },
 }
 
+--id = 0
+
+local function makeitem(str, val, cat)
+	--id = id + 1
+	return ({--[[id=id, ]]str=str, val=val, cat=cat})
+end
+
 pricesPool =
 {
-    money =
-    {
-      house = "",
-      car = "",
-      bank = "",
-    },
-    love =
-    {
-      wife = "",
-      husband = "",
-      kids = "",
-      dog = "",
-      cat = "",
-    },
-    power =
-    {
-      boss = "", --ex : patron de sa boite
-      celebrity = "",
-    },
+    -- possessions
+	makeitem("house", 5, "possessions"),
+	makeitem("car", 5, "possessions"),
+	makeitem("rich", 5, "possessions"),
+    
+	-- relations
+	makeitem("lover", 5, "relations"),
+	makeitem("kids", 5, "relations"),
+	makeitem("dog", 5, "relations"),
+	makeitem("cat", 5, "relations"),
+    
+	-- ego
+	makeitem("boss", 5, "ego"), --ex : patron de sa boite
+	makeitem("celebrity", 5, "ego"),
 }
