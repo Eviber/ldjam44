@@ -1,5 +1,6 @@
 local gGame = {}
 local Human = require "human"
+local loraine = require "wish"
 require "pools"
 
 function gGame:init()
@@ -16,7 +17,16 @@ function gGame:keypressed(key, scancode, isrepeat)
 	end
 end
 
+function gGame:keyreleased(key, scancode, irepeat)
+	if scancode == 'space' then
+		cHuman.toRemove = true
+		loraine.grantWish()
+	end
+end
+
+
 function gGame:update(dt)
+
 end
 
 function drawbg()
@@ -45,12 +55,12 @@ function drawclient()
 end
 
 function drawtruc()
-	lg.setColor(226/255,67/255,75/255)
-	lg.rectangle("fill", W - 700, 50, 100, 400)
 	lg.setColor(0/255,111/255,158/255)
-	lg.rectangle("fill", W - 500, 50, 100, 400)
+	lg.rectangle("fill", W - 700, 450, 100, - 4*resources.possessions)
+	lg.setColor(226/255,67/255,75/255)
+	lg.rectangle("fill", W - 500, 450, 100, - 4*resources.relations)
 	lg.setColor(134/255,192/255,106/255)
-	lg.rectangle("fill", W - 300, 50, 100, 400)
+	lg.rectangle("fill", W - 300, 450, 100, - 4*resources.ego)
 end
 
 function gGame:draw()
@@ -64,6 +74,9 @@ function gGame:draw()
 	vfx.draw()
 	lg.setColor(1, 1, 1)
 	lg.print(cHuman.wish[1])
+	lg.print(resources.relations, 0, 50)
+	lg.print(resources.possessions, 0, 100)
+	lg.print(resources.ego, 0, 150)
 	TLfres.endRendering({0,1,0,1})
 end
 
