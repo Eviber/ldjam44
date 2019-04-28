@@ -1,10 +1,10 @@
 local gGame = {}
+local Human = require "human"
+require "pools"
 
 function gGame:init()
-	relations = 20
-	ego = 20
-	possessions = 20
-	cHuman = {wish, }
+	resources = {relations = 20, ego = 20, possessions = 20}
+	cHuman = Human:new_human()
 end
 
 function gGame:enter()
@@ -40,13 +40,15 @@ function drawdesk()
 end
 
 function gGame:draw()
-	TLfres.beginRendering(1920, 1080, true)
+	TLfres.beginRendering(1920, 1080)
 	drawbg()
 	drawcontract()
 	drawsatan()
 	drawdesk()
+	lg.setColor(1, 1, 1)
+	lg.print(cHuman.wish[1])
 	vfx.draw()
-	TLfres.endRendering()
+	TLfres.endRendering({0,1,0,1})
 end
 
 return gGame
