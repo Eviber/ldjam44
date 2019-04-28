@@ -76,7 +76,14 @@ function gGame:draw()
 	vfx.draw()
 	lg.setColor(0, 0, 0)
 	lg.print(cHuman.wish[1], 150, 150)
-	lg.print(cHuman.items[i]
+	local itemNumber = 0
+	for i = 0, #cHuman.items do
+		if cHuman.items[i] ~= nil then
+			itemNumber = itemNumber + 1
+			lg.print((cHuman.items[i].i.str), 150, 200 + itemNumber* 50)
+		end
+	end
+
 	lg.setColor(1,1,1)
 	lg.print(resources.relations, W-700, 100)
 	lg.print(resources.possessions, W-500, 100)
