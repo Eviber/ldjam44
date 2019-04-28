@@ -10,6 +10,7 @@ gCredits = require "credits"
 
 lg = love.graphics
 isDown = love.keyboard.isDown
+rd = math.random
 
 function loadassets()
 	sfx.load()
