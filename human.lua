@@ -11,7 +11,7 @@ local function getwish()
 	return rdtb(rdtb(wishesPool))
 end
 
-local function getitems()
+local function getItems()
 	local items = {}
 
 	for i = 1, rd(20) do
@@ -38,7 +38,7 @@ function Human:create(appearance)
 	local hooman = {}
 	setmetatable(hooman, Human)
 	hooman.wish = getwish()
-	hooman.items = getitems()
+	hooman.items = getItems()
 	hooman.appearance = appearance
 	hooman.toRemove = toRemove
 	return hooman

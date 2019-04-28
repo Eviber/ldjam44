@@ -74,11 +74,13 @@ function gGame:draw()
 	drawclient()
 	drawtruc()
 	vfx.draw()
-	lg.setColor(1, 1, 1)
-	lg.print(cHuman.wish[1])
-	lg.print(resources.relations, 0, 50)
-	lg.print(resources.possessions, 0, 100)
-	lg.print(resources.ego, 0, 150)
+	lg.setColor(0, 0, 0)
+	lg.print(cHuman.wish[1], 150, 150)
+	lg.print(cHuman.items[i]
+	lg.setColor(1,1,1)
+	lg.print(resources.relations, W-700, 100)
+	lg.print(resources.possessions, W-500, 100)
+	lg.print(resources.ego, W-300, 100)
 	TLfres.endRendering({0,1,0,1})
 end
 
