@@ -10,8 +10,8 @@ function Button:create(x, y, w, h, f)
   btn.w = w
   btn.h = h
   btn.clicked = 0
-  btn.img1 = "/Images/Bouton.jpg"
-  btn.img2 = "/Images/Bouton2.jpg"
+  btn.img1 = "/assets/img/Bouton.jpg"
+  btn.img2 = "/assets/img/Bouton2.jpg"
   btn.f = f
   return btn
 end

@@ -6,7 +6,7 @@ button3 = Button:create(1400, 700, 300, 100)
 NewGame = love.graphics.newImage(button.img1)
 Credits = love.graphics.newImage(button2.img1)
 Quit = love.graphics.newImage(button3.img1)
-LULZ = love.graphics.newImage("/Images/Credits.jpg")
+LULZ = love.graphics.newImage("assets/img/Credits.jpg")
 
 local gMenu = {}
 

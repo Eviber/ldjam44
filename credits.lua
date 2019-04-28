@@ -1,7 +1,7 @@
 local gCredits = {}
 
 function gCredits:init()
-  src1 = love.audio.newSource("/Sounds/Voices/lulz.wav", "static")
+  src1 = love.audio.newSource("assets/sfx/music/lulz.wav", "static")
   src1:play()
 end
 
