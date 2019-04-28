@@ -6,7 +6,7 @@ vfx = require "vfx"
 
 gGame = require "game"
 gMenu = require "menu"
---gCredits = require "credits"
+gCredits = require "credits"
 
 lg = love.graphics
 isDown = love.keyboard.isDown
