@@ -30,6 +30,7 @@ local function getitems()
 			print(items[i].i.str, items[i].n)
 		end
 	end
+	print()
 	return items
 end
 
