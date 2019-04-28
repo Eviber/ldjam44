@@ -19,7 +19,7 @@ function gGame:keypressed(key, scancode, isrepeat)
 end
 
 function gGame:keyreleased(key, scancode, irepeat)
-	print(scancode)
+	--print(scancode)
 	if scancode == 'space' and lorraine.grantWish() then
 		cHuman.toRemove = true
 	end
