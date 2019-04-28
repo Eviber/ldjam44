@@ -1,4 +1,5 @@
 local gGame = {}
+local spawned = 0
 
 function gGame:init()
 	relations = 20
@@ -12,57 +13,88 @@ end
 
 function gGame:keypressed(key, scancode, isrepeat)
 	if scancode == 'escape' then
-    love.graphics.setColor(1,1,1,1)
 		Gamestate.switch(gPause)
-	end
+  elseif scancode == "return" then
+    spawned = 1
+  elseif scancode == "backspace" then
+    spawned = 0
+  end
 end
 
 function gGame:update(dt)
 end
 
+function drawground()
+  love.graphics.draw(imgs.sp_ground,0 ,0)
+end
+
+function drawpenta()
+  love.graphics.draw(imgs.sp_penta,0,0)
+end
+
 function drawbg()
-	lg.setColor(0.5, 0.2, 0.2)
-	lg.rectangle("fill", 0, 0, W, H)
+	love.graphics.draw(imgs.bg_back, 0, 0)
+end
+
+function drawbg2()
+	love.graphics.draw(imgs.bg_front, 0, 0)
 end
 
 function drawcontract()
-	lg.setColor(0.8,0.8,0.8)
-	lg.rectangle("fill", 50, 50, W/2-100, H-100)
+  love.graphics.draw(imgs.sp_cont, 0, 0)
 end
 
-function drawsatan()
-	lg.setColor(0.4, 0.0, 0.0)
-	lg.rectangle("fill", W - 200, H - 350, 150, 300)
+function drawcontract_shadow()
+  love.graphics.draw(imgs.sp_cont_s, 0, 0)
+end
+
+function drawsatan_leg()
+  love.graphics.draw(imgs.sp_satan2, 0, 0)
+end
+
+function drawsatan_top()
+  love.graphics.draw(imgs.sp_satan1, 0, 0)
 end
 
 function drawdesk()
-	lg.setColor(90/255, 57/255, 33/255)
-	lg.rectangle("fill", W - 550, H - 150, 300, 100)
+ love.graphics.draw(imgs.sp_desk, 0, 0)
+end
+
+function drawblue()
+ love.graphics.draw(imgs.sp_unit_b, 0, 0)
+end
+
+function drawgreen()
+ love.graphics.draw(imgs.sp_unit_g, 0, 0)
+end
+
+function drawred()
+ love.graphics.draw(imgs.sp_unit_r, 0, 0)
 end
 
 function drawclient()
-	lg.setColor(90/255, 90/255, 90/255)
-	lg.rectangle("fill", W - 700, H - 300, 100, 250)
-end
-
-function drawtruc()
-	lg.setColor(226/255,67/255,75/255)
-	lg.rectangle("fill", W - 700, 50, 100, 400)
-	lg.setColor(0/255,111/255,158/255)
-	lg.rectangle("fill", W - 500, 50, 100, 400)
-	lg.setColor(134/255,192/255,106/255)
-	lg.rectangle("fill", W - 300, 50, 100, 400)
+  if spawned == 1 then 
+    love.graphics.draw(imgs.sp_pnj,0,0)
+  elseif spawned == 0 then
+  end
 end
 
 function gGame:draw()
 	TLfres.beginRendering(1920, 1080)
 	drawbg()
-	drawcontract()
-	drawsatan()
-	drawdesk()
-	drawclient()
-	drawtruc()
-	vfx.draw()
+  drawblue()
+  drawred()
+  drawgreen()
+  drawbg2()
+  drawground()
+  drawpenta()
+  drawsatan_leg()
+  drawdesk()
+  drawsatan_top()
+  drawcontract()
+  drawcontract_shadow()
+  drawclient()
+--	vfx.draw()
 	TLfres.endRendering()
 end
 
