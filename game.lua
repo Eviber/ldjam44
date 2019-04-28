@@ -1,6 +1,7 @@
 local gGame = {}
 local Human = require "human"
-local loraine = require "wish"
+local lorraine = require "wish"
+local utils = require "utils"
 require "pools"
 
 function gGame:init()
@@ -18,15 +19,20 @@ function gGame:keypressed(key, scancode, isrepeat)
 end
 
 function gGame:keyreleased(key, scancode, irepeat)
-	if scancode == 'space' then
+	print(scancode)
+	if scancode == 'space' and lorraine.grantWish() then
 		cHuman.toRemove = true
-		loraine.grantWish()
+	end
+	if utils:hasValue(scancode, {'1', '2', '3', '4', '5', '6', '7', '8', '9'}) then
+		if cHuman.items[tonumber(scancode)] ~= nil then
+			cHuman.items[tonumber(scancode)].checked = not cHuman.items[tonumber(scancode)].checked --(cHuman.items[tonumber(scancode)].checked == true and false or true)
+		end
 	end
 end
 
 
 function gGame:update(dt)
-	if cHuman.toRemove then
+	if cHuman.toRemove then --temporary, will need to animate appearance and disappearance
 		cHuman = Human:create()
 	end
 end
@@ -79,6 +85,7 @@ function gGame:draw()
 	local itemNumber = 0
 	for i = 0, #cHuman.items do
 		if cHuman.items[i] ~= nil then
+			lg.setColor(unpack(cHuman.items[i].checked == true and {0,1,0} or {0,0,0}))
 			itemNumber = itemNumber + 1
 			lg.print((cHuman.items[i].i.str), 150, 200 + itemNumber* 30)
 		end
