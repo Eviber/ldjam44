@@ -1,11 +1,10 @@
 local Class = require"Class"
-lulzvar = 0
-button = Button:create(1400, 300, 300, 100)
-button2 = Button:create(1400, 500, 300, 100)
-button3 = Button:create(1400, 700, 300, 100)
-NewGame = love.graphics.newImage(button.img1)
-Credits = love.graphics.newImage(button2.img1)
-Quit = love.graphics.newImage(button3.img1)
+local button = Button:create(1400, 300, 300, 100)
+local button2 = Button:create(1400, 500, 300, 100)
+local button3 = Button:create(1400, 700, 300, 100)
+local NewGame = love.graphics.newImage(button.img1)
+local Credits = love.graphics.newImage(button2.img1)
+local Quit = love.graphics.newImage(button3.img1)
 LULZ = love.graphics.newImage("assets/img/Credits.jpg")
 
 local gMenu = {}

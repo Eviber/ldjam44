@@ -12,7 +12,8 @@ end
 
 function gGame:keypressed(key, scancode, isrepeat)
 	if scancode == 'escape' then
-		Gamestate.switch(gMenu)
+    love.graphics.setColor(1,1,1,1)
+		Gamestate.switch(gPause)
 	end
 end
 
