@@ -9,24 +9,30 @@ local pop = false
 
 require "pools"
 
+local function rmHuman()
+	sfx.bop:play()
+	spawned = false
+	pop = true
+	Timer.after(0.1, function() pop = false end)
+end
+
 function gGame:init()
 end
 
 function gGame:enter()
+	if fromMenu then
+		cHuman = Human:create()
+		Timer.after(0.25, function() spawned = true end)
+		fire:start()
+		fromMenu = false
+	end
 end
 
 function gGame:keypressed(key, scancode, isrepeat)
 	if scancode == 'escape' then
 		Gamestate.switch(gPause)
 	elseif scancode == "return" then
-		Timer.after(0.25, function() spawned = true end)
-		fire:start()
 	elseif scancode == "backspace" then
-		spawned = false
-		pop = true
-		Timer.after(0.1, function() pop = false end)
-		sfx.bop:play()
-		fire:stop()
 	end
 end
 
@@ -48,18 +54,24 @@ function gGame:keyreleased(key, scancode, irepeat)
 	
 	if utils:hasValue(scancode, {'1', '2', '3', '4', '5', '6', '7', '8', '9'}) then
 		if cHuman.items[tonumber(scancode)] ~= nil then
-			cHuman.items[tonumber(scancode)].checked = not cHuman.items[tonumber(scancode)].checked --(cHuman.items[tonumber(scancode)].checked == true and false or true)
+			cHuman.items[tonumber(scancode)].checked = not cHuman.items[tonumber(scancode)].checked
 		end
 	end
 end
 
-
 function gGame:update(dt)
-	Timer.update(dt)
-	if cHuman.toRemove then --temporary, will need to animate appearance and disappearance
-		cHuman = Human:create()
+	if cHuman.toRemove then
+		rmHuman()
+		cHuman.toRemove = false
+		Timer.after(0.5,
+			function ()
+				cHuman = Human:create()
+				Timer.after(0.25, function() spawned = true end)
+				fire:start()
+			end)
 	end
 	fire:update(dt)
+	Timer.update(dt)
 end
 
 function drawground()
@@ -115,7 +127,7 @@ function drawclient()
 end
 
 function drawwindow()
- love.graphics.draw(imgs.sp_window, 0, 0)
+	love.graphics.draw(imgs.sp_window, 0, 0)
 end
 
 function gGame:draw()
