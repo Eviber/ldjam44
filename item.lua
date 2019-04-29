@@ -17,7 +17,7 @@ function Item:getItems(human)
 						IZGOOD = true
 					end
 				else
-					table.remove(human.items, rd(#human.items))
+					table.remove(human.items, #human.items)
 				end
 			end
 		end
