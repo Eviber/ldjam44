@@ -32,9 +32,20 @@ end
 
 function gGame:keyreleased(key, scancode, irepeat)
 	--print(scancode)
-	if scancode == 'space' and lorraine.grantWish() then
+	if scancode == 'space' then
 		cHuman.toRemove = true
+		if lorraine.grantWish() then
+			--animation tampon Accepted
+		else
+			--animation tampon X
+			resources["relations"] = resources["relations"] - 20
+			resources["possessions"] = resources["possessions"] - 20
+			resources["ego"] = resources["ego"] - 20
+		end
+		
 	end
+	
+	
 	if utils:hasValue(scancode, {'1', '2', '3', '4', '5', '6', '7', '8', '9'}) then
 		if cHuman.items[tonumber(scancode)] ~= nil then
 			cHuman.items[tonumber(scancode)].checked = not cHuman.items[tonumber(scancode)].checked --(cHuman.items[tonumber(scancode)].checked == true and false or true)
@@ -88,11 +99,11 @@ function drawblue()
 end
 
 function drawgreen()
-	love.graphics.draw(imgs.sp_unit_g, 0, 348 - (348 * resources.relations / 1000))
+	love.graphics.draw(imgs.sp_unit_g, 0, 348 - (348 * resources.ego / 1000))
 end
 
 function drawred()
-	love.graphics.draw(imgs.sp_unit_r, 0, 348 - (348 * resources.ego / 1000))
+	love.graphics.draw(imgs.sp_unit_r, 0, 348 - (348 * resources.relations / 1000))
 end
 
 function drawclient()
@@ -138,6 +149,7 @@ function gGame:draw()
 	lg.print(resources.possessions, W-700, 100)
 	lg.print(resources.relations, W-500, 100)
 	lg.print(resources.ego, W-300, 100)
+	
 	vfx.draw()
 	TLfres.endRendering()
 end
