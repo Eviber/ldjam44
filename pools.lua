@@ -25,7 +25,7 @@ local function makeitem(str, val, cat)
 	return ({--[[id=id, ]]str=str, val=val, cat=cat})
 end
 
-pricesPool =
+itemsPool =
 {
     -- possessions
 	makeitem("house", 5, "possessions"),
