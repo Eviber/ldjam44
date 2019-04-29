@@ -16,9 +16,9 @@ wishesPool =
 {
     {
         {"I want to be Bill Gates rich.", wish.v1 , "possessions"}, --ex: i want XXX Dollars
-        {"I want to win the lottery.", wish.v2, "possessions"},
-        {"I want a private island", wish.v3, "possessions"},
-        {"I want to be elected president.", wish.v4, "possessions"},
+        {"I want to be elected president.", wish.v2, "possessions"},
+        {"I want to win the lottery.", wish.v3, "possessions"},
+        {"I want a private island", wish.v4, "possessions"},
         {"I want a huge mansion.", wish.v5, "possessions"},
         {"I want a pot of gold.", wish.v6, "possessions"},
         {"I want to get my dream job.", wish.v7, "possessions"},
@@ -35,8 +35,8 @@ wishesPool =
         {"I want to cure someone's disease.", wish.v5, "relations"},
         {"I want to be loved by everyone.", wish.v6, "relations"},
         {"I want us to be together again.", wish.v7, "relations"},
-        {"I want them to break up.", wish.v8, "relations"},
-        {"I want them to accept me for who I am.", wish.v9, "relations"},
+        {"I want them to accept me for who I am.", wish.v8, "relations"},
+        {"I want them to break up.", wish.v9, "relations"},
         {"I want my waifu to be real.", wish.v10, "relations"},
         {"I want a pet rock.", wish.v11, "relations"},
 
@@ -66,12 +66,12 @@ end
 
 
 local items = {
-v1 = 200,
-v2 = 160,
-v3 = 120,
-v4 = 80,
-v5 = 60,
-v6 = 30,
+v1 = 250,
+v2 = 200,
+v3 = 150,
+v4 = 100,
+v5 = 50,
+v6 = 25,
 }
 
 itemsPool =
