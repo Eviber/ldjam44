@@ -26,6 +26,7 @@ function gGame:enter()
 		Timer.after(0.25, function() spawned = true end)
 		fire:start()
 		fromMenu = false
+		gameover_state = 0
 	end
 end
 
@@ -53,6 +54,7 @@ function gGame:keyreleased(key, scancode, irepeat)
 		
 		--checking for victory or defeat
 		check_victory()
+		check_defeat()
 		
 	end
 	

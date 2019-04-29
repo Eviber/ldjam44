@@ -7,6 +7,7 @@ utils = require "utils"
 
 gGame = require "game"
 gMenu = require "menu"
+gOver = require "game_over"
 gCredits = require "credits"
 gPause = require "pause"
 gTuto = require "tuto"
@@ -18,6 +19,7 @@ isDown = love.keyboard.isDown
 rd = math.random
 
 max_resources = 1000
+gameover_state = 0
 
 
 function loadassets()
