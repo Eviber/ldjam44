@@ -27,7 +27,8 @@ function loadassets()
     sp_unit_b = lg.newImage("/assets/img/sprite_blue_unit.png"),
     sp_unit_g = lg.newImage("/assets/img/sprite_green_unit.png"),
     sp_unit_r = lg.newImage("/assets/img/sprite_red_unit.png"),
-    sp_penta = lg.newImage("/assets/img/sprite_penta.png")
+    sp_penta = lg.newImage("/assets/img/sprite_penta.png"),
+    sp_window = lg.newImage("/assets/img/sprite_window.png"),
   }
 	sfx.load()
 	vfx.load()
