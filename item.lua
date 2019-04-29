@@ -17,6 +17,7 @@ function Item:getItems(human)
 						IZGOOD = true
 					end
 				else
+					currentVal = currentVal - human.items[#human.items].val
 					table.remove(human.items, #human.items)
 				end
 			end
