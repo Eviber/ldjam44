@@ -9,6 +9,7 @@ gGame = require "game"
 gMenu = require "menu"
 gCredits = require "credits"
 gPause = require "pause"
+gTuto = require "tuto"
 
 lg = love.graphics
 isDown = love.keyboard.isDown

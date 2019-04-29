@@ -45,7 +45,7 @@ function gMenu:mousereleased(x, y, click_type)
   x,y = TLfres.getMousePosition(1920,1080)
  if button:isclicked(x,y) == true then
     NewGame = love.graphics.newImage(button.img1)
-    Gamestate.switch(gGame)
+    Gamestate.switch(gTuto)
   elseif button2:isclicked(x,y) == true then
     Credits = love.graphics.newImage(button2.img1)
     Gamestate.switch(gCredits)
