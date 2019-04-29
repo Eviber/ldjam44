@@ -23,7 +23,7 @@ local function sortitems(items)
 	table.sort(items, s)
 end
 
---[[local function getItems()
+local function getItems()
 	local items = {}
 
 	for i = 1, rd(20) do
@@ -40,7 +40,7 @@ end
 	end
 	print()
 	return items
-end]]
+end
 
 function Human:create(appearance)
 	local hooman = {}
@@ -50,8 +50,9 @@ function Human:create(appearance)
 	print("Name: " .. hooman.name)
 	hooman.ratio = rdtb({1.1, 1.3, 1.5})
 	hooman.totVal = hooman.wish[2] * rdtb({1.8, 2.0, 2.2})
-	hooman.items = {}
-	Item:getItems(hooman)
+	--hooman.items = {}
+	--Item:getItems(hooman)
+	hooman.items = getItems()
 	hooman.appearance = appearance
 	hooman.toRemove = toRemove
 	

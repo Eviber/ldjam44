@@ -7,7 +7,7 @@ local spawned = 0
 require "pools"
 
 function gGame:init()
-	resources = {relations = 20, ego = 20, possessions = 20}
+	resources = {relations = 200, ego = 200, possessions = 200}
 	cHuman = Human:create()
 end
 
@@ -83,15 +83,15 @@ function drawdesk()
 end
 
 function drawblue()
- love.graphics.draw(imgs.sp_unit_b, 0, 348 - (348 * resources.possessions / 100))
+ love.graphics.draw(imgs.sp_unit_b, 0, 348 - (348 * resources.possessions / 1000))
 end
 
 function drawred()
- love.graphics.draw(imgs.sp_unit_r, 0, 348 - (348 * resources.relations / 100))
+ love.graphics.draw(imgs.sp_unit_r, 0, 348 - (348 * resources.relations / 1000))
 end
 
 function drawgreen()
- love.graphics.draw(imgs.sp_unit_g, 0, 348 - (348 * resources.ego / 100))
+ love.graphics.draw(imgs.sp_unit_g, 0, 348 - (348 * resources.ego / 1000))
 end
 
 function drawwindow()
