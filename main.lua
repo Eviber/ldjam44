@@ -36,6 +36,8 @@ function loadassets()
     sp_window = lg.newImage("/assets/img/sprite_window.png"),
     bop = lg.newImage("/assets/img/bop.png"),
   }
+	cursor = love.mouse.newCursor("assets/img/cursor.png", 3, 2)
+	za_hand = love.mouse.getSystemCursor("hand")
 	sfx.load()
 	vfx.load()
 end
@@ -47,6 +49,7 @@ function love.load()
 	W, H = 1920, 1080
 
 	loadassets()
+	love.mouse.setCursor(cursor)
 
 	Gamestate.switch(gMenu)
 end
