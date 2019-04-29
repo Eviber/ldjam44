@@ -3,20 +3,21 @@ local lg = love.graphics
 local vfx = {}
 
 function vfx.load()
---[[
-	hemo = lg.newParticleSystem(love.graphics.newImage('hemo.png'))
-	hemo:setParticleLifetime(0.3)
-	hemo:setSizes(0.15)
-	hemo:setLinearAcceleration(10000, 0, -10000, -10000)
-	hemo:setRadialAcceleration(1000)
-	hemo:setSizeVariation(0)
-	hemo:setPosition(1920/2 - 20, 1080/2 + 50)
-	hemo:setEmissionArea("ellipse", 30, 30)
-	hemo:setEmitterLifetime(0.2)
-	hemo:setEmissionRate(10000)
-	hemo:setDirection(-math.pi/2)
-	hemo:stop()
 
+	fire = lg.newParticleSystem(love.graphics.newImage("/assets/img/fire.png"))
+	fire:setParticleLifetime(0.6)
+	--fire:setSizes(2,2,3,3)
+  --fire:setSpread(math.pi/4)
+  fire:setSpeed(800,800)
+  --fire:setRadialAcceleration(25)
+  fire:setSizeVariation(1)
+	fire:setPosition(1110, 960)
+  fire:setEmissionArea("ellipse", 110, 80)
+  --fire:setEmitterLifetime(1.5)
+  fire:setEmissionRate(1000)
+  fire:setDirection(-math.pi/2)
+  fire:stop()
+--[[
 	void = lg.newParticleSystem(love.graphics.newImage('pixel.png'))
 	void:setParticleLifetime(2)
 	void:setSizes(tileDim/2)
@@ -37,9 +38,7 @@ function vfx.load()
 ]]
 end
 
-function vfx.update(dt)
-	--hemo:update(dt)
-end
+
 
 --[[
 	smoke:setEmissionRate(10 * speed)
@@ -64,14 +63,13 @@ end
 end
 ]]
 
+function vfx.update(dt)
+	fire:update(dt)
+end
+
 function vfx.draw()
---[[
 	lg.setColor(1,1,1,1)
-	lg.draw(hemo)
-	for _, psys in pairs(p) do
-		lg.draw(psys)
-	end
-]]
+	lg.draw(fire)
 end
 
 return vfx
