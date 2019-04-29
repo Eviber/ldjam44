@@ -42,6 +42,11 @@ function loadassets()
 	GO_rel = lg.newImage("/assets/img/game_over_rel.png"),
 	GO_ego = lg.newImage("/assets/img/game_over_ego.png"),
   }
+
+	stamps = {
+		accepted = lg.newImage("assets/img/approved.png"),
+		denied = lg.newImage("assets/img/denied.png"),
+	}
 	cursor = love.mouse.newCursor("assets/img/cursor.png", 3, 2)
 	za_hand = love.mouse.getSystemCursor("hand")
 	sfx.load()

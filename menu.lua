@@ -19,6 +19,8 @@ function gMenu:enter()
 	resources = {relations = 500, ego = 500, possessions = 500}
 	cHuman = Human:create()
 	fromMenu = true
+	accepted = false
+	denied = false
 end
 
 function gMenu:update(dt)

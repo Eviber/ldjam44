@@ -44,13 +44,16 @@ function gGame:keyreleased(key, scancode, irepeat)
 		--resolving contract outcome
 		cHuman.toRemove = true
 		if lorraine.grantWish() then
+			accepted = true
 			--animation tampon Accepted
 		else
+			denied = true
 			--animation tampon X
 			resources["relations"] = resources["relations"] - 20
 			resources["possessions"] = resources["possessions"] - 20
 			resources["ego"] = resources["ego"] - 20
 		end
+		Timer.after(0.25, function() accepted = false ; denied = false end)
 		
 		--checking for victory or defeat
 		check_victory()
@@ -137,6 +140,14 @@ function drawwindow()
 	love.graphics.draw(imgs.sp_window, 0, 0)
 end
 
+local function drawstamp()
+	if accepted then
+		lg.draw(stamps.accepted)
+	elseif denied then
+		lg.draw(stamps.denied)
+	end
+end
+
 function gGame:draw()
 	TLfres.beginRendering(1920, 1080)
 	drawbg()
@@ -151,6 +162,7 @@ function gGame:draw()
 	drawsatan_top()
 	drawwindow()
 	drawcontract()
+	drawstamp()
 	drawclient()
 
 	lg.setColor(0, 0, 0)
