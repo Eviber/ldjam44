@@ -9,7 +9,7 @@ function Item:getItems(human)
 		table.insert(items, cp)
 		currentVal = currentVal + items[#items].val
 		print(currentVal, cp.val, human.totVal, cp.str)
-		if #items > 12 then
+		if #items > 10 then
 			items = {}
 		else
 			if currentVal >= human.totVal then
