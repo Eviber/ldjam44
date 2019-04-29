@@ -48,11 +48,11 @@ function Human:create(appearance)
 	hooman.wish = getwish()
 	hooman.name = gibName()
 	print("Name: " .. hooman.name)
-	hooman.ratio = rdtb({1.1, 1.3, 1.5})
-	hooman.totVal = math.max(70, hooman.wish[2] * rdtb({1.8, 2.0, 2.2}))
-	hooman.items = {}
-	Item:getItems(hooman)
-	--hooman.items = getItems()
+	hooman.ratio = rdtb({1.25, 1.5, 2})
+	hooman.totVal = math.max(100, hooman.wish[2] * rdtb({1.8, 2.0, 2.2}))
+	--hooman.items = {}
+	--Item:getItems(hooman)
+	hooman.items = getItems()
 	hooman.appearance = appearance
 	hooman.toRemove = toRemove
 	
