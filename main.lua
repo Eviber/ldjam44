@@ -9,6 +9,7 @@ gGame = require "game"
 gMenu = require "menu"
 gCredits = require "credits"
 gPause = require "pause"
+require "button"
 
 lg = love.graphics
 isDown = love.keyboard.isDown
@@ -26,7 +27,6 @@ function loadassets()
     sp_satan2 = lg.newImage("/assets/img/sprite_satan_22.png"),
     sp_ground = lg.newImage("/assets/img/sprite_ground.png"),
     sp_cont = lg.newImage("/assets/img/sprite_contract.png"),
-    sp_cont_s = lg.newImage("/assets/img/sprite_contract_shadow.png"),
     sp_unit_b = lg.newImage("/assets/img/sprite_blue_unit.png"),
     sp_unit_g = lg.newImage("/assets/img/sprite_green_unit.png"),
     sp_unit_r = lg.newImage("/assets/img/sprite_red_unit.png"),

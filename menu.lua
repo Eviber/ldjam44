@@ -1,4 +1,5 @@
-local Class = require"Class"
+require "button"
+
 local button = Button:create(1250, 150, 97, 90)
 local button2 = Button:create(1250, 350, 97, 90)
 local button3 = Button:create(1250, 550, 97, 90)
@@ -14,6 +15,8 @@ function gMenu:init()
 end
 
 function gMenu:enter()
+	resources = {relations = 500, ego = 500, possessions = 500}
+	cHuman = Human:create()
 end
 
 function gMenu:update(dt)
