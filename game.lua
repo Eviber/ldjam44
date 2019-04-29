@@ -91,6 +91,10 @@ function drawred()
  love.graphics.draw(imgs.sp_unit_r, 0, 348 - (348 * resources.ego / 100))
 end
 
+function drawwindow()
+ love.graphics.draw(imgs.sp_window, 0, 0)
+end
+
 function drawclient()
   if spawned == 1 then 
     love.graphics.draw(imgs.sp_pnj,0,0)
@@ -110,6 +114,7 @@ function gGame:draw()
   drawsatan_leg()
   drawdesk()
   drawsatan_top()
+  drawwindow()
   drawcontract()
   drawcontract_shadow()
   drawclient()
