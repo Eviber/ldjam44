@@ -4,7 +4,7 @@ function Item:getItems(human)
 	currentVal = 0
 	IZGOOD = false
 	while not IZGOOD do
-		table.insert(human.items, rdtb(itemsPool))
+		table.insert(human.items, shallowcopy(rdtb(itemsPool)))
 		currentVal = currentVal + human.items[#human.items].val
 		if #human.items > 12 then
 			human.items = {}

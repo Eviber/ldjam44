@@ -5,7 +5,7 @@ function Wish:grantWish()
 		resources[cHuman.wish[3]] = resources[cHuman.wish[3]] - cHuman.wish[2]
 		for i = 0, #cHuman.items do
 			if cHuman.items[i] ~= nil and cHuman.items[i].checked then
-				resources[cHuman.items[i].i.cat] = resources[cHuman.items[i].i.cat] + cHuman.items[i].i.val
+				resources[cHuman.items[i].cat] = resources[cHuman.items[i].cat] + cHuman.items[i].val
 			end
 		end
 		return true
