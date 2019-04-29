@@ -46,6 +46,7 @@ function loadassets()
     sp_symb_b = lg.newImage("/assets/img/sprite_symbol_b.png"),
     sp_symb_g = lg.newImage("/assets/img/sprite_symbol_g.png"),
     sp_symb_r = lg.newImage("/assets/img/sprite_symbol_r.png"),
+    sp_photo = lg.newImage("/assets/img/sprite_photo.png"),
   }
   
 	cursor = love.mouse.newCursor("assets/img/cursor.png", 3, 2)
