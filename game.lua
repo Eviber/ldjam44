@@ -130,6 +130,8 @@ function drawwindow()
 	love.graphics.draw(imgs.sp_window, 0, 0)
 end
 
+
+
 function gGame:draw()
 	TLfres.beginRendering(1920, 1080)
 	drawbg()

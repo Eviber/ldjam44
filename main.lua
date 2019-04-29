@@ -35,7 +35,19 @@ function loadassets()
     sp_penta = lg.newImage("/assets/img/sprite_penta.png"),
     sp_window = lg.newImage("/assets/img/sprite_window.png"),
     bop = lg.newImage("/assets/img/bop.png"),
+    sp_tick1 = lg.newImage("/assets/img/sprite_tickbox_empty.png"),
+    sp_tick2 = lg.newImage("/assets/img/sprite_tickbox.png"),
+    sp_trom_g = lg.newImage("/assets/img/sprite_tromb_g.png"),
+    sp_trom_y = lg.newImage("/assets/img/sprite_tromb_y.png"),
+    sp_trom_r = lg.newImage("/assets/img/sprite_tromb_r.png"),
+    sp_vial_r = lg.newImage("/assets/img/sprite_vial_r.png"),
+    sp_vial_g = lg.newImage("/assets/img/sprite_vial_g.png"),
+    sp_vial_b = lg.newImage("/assets/img/sprite_vial_b.png"),
+    sp_symb_b = lg.newImage("/assets/img/sprite_symbol_b.png"),
+    sp_symb_g = lg.newImage("/assets/img/sprite_symbol_g.png"),
+    sp_symb_r = lg.newImage("/assets/img/sprite_symbol_r.png"),
   }
+  
 	cursor = love.mouse.newCursor("assets/img/cursor.png", 3, 2)
 	za_hand = love.mouse.getSystemCursor("hand")
 	sfx.load()
