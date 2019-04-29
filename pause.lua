@@ -1,8 +1,8 @@
 local Class require"Class"
-local img = "/assets/img/Pause.png"
+local img = "/assets/img/sprite_pause.png"
 local vin = "/assets/img/Vignette.png"
-local button = Button:create(810, 400, 300, 100)
-local button2 = Button:create(810, 600, 300, 100)
+local button = Button:create(600, 400, 97, 90)
+local button2 = Button:create(600, 600, 97, 90)
 local Resume = love.graphics.newImage(button.img1)
 local Quit = love.graphics.newImage(button2.img1)
 local Pause = love.graphics.newImage(img)

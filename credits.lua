@@ -1,8 +1,9 @@
 local Class require"Class"
 
-local button = Button:create(230, 870, 300, 100)
+local button = Button:create(230, 870, 97, 90)
 local Quit = love.graphics.newImage(button.img1)
 local gCredits = {}
+
 
 local function Isin(x,y,x2,y2)
   if x > x2 and x<  x2 + 40 and y > y2 and y < y2 + 40 then
