@@ -10,7 +10,7 @@ local pop = false
 require "pools"
 
 function gGame:init()
-	resources = {relations = 200, ego = 200, possessions = 200}
+	resources = {relations = 500, ego = 500, possessions = 500}
 	cHuman = Human:create()
 end
 
@@ -137,7 +137,7 @@ function gGame:draw()
 		if cHuman.items[i] ~= nil then
 			lg.setColor(unpack(cHuman.items[i].checked == true and {0,1,0} or {0,0,0}))
 			itemNumber = itemNumber + 1
-			lg.print((cHuman.items[i].i.str), 150, 200 + itemNumber* 30)
+			lg.print((cHuman.items[i].str), 150, 200 + itemNumber* 30)
 		end
 	end
 
