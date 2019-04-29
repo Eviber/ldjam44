@@ -29,12 +29,12 @@ local function getItems()
 
 	for i = 1, rd(20) do
 		items[i] = {
-			i = pricesPool[rd(#pricesPool)],
+			i = itemsPool[rd(#itemsPool)],
 			check = false,
 		}
 	end
 	sortitems(items)
-	for i = 1, #pricesPool do
+	for i = 1, #itemsPool do
 		if items[i] then
 			print(items[i].i.str)
 		end
