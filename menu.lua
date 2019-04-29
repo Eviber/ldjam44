@@ -25,6 +25,7 @@ function gMenu:draw()
   love.graphics.draw(Credits, button2.x, button2.y)
   love.graphics.draw(Quit, button3.x, button3.y)
 	TLfres.endRendering({0,0,0,0})
+
 end
 
 function gMenu:mousepressed(x, y, click_type)
