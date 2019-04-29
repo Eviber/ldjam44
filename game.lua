@@ -87,12 +87,12 @@ function drawblue()
  love.graphics.draw(imgs.sp_unit_b, 0, 348 - (348 * resources.possessions / 100))
 end
 
-function drawgreen()
- love.graphics.draw(imgs.sp_unit_g, 0, 348 - (348 * resources.relations / 100))
+function drawred()
+ love.graphics.draw(imgs.sp_unit_r, 0, 348 - (348 * resources.relations / 100))
 end
 
-function drawred()
- love.graphics.draw(imgs.sp_unit_r, 0, 348 - (348 * resources.ego / 100))
+function drawgreen()
+ love.graphics.draw(imgs.sp_unit_g, 0, 348 - (348 * resources.ego / 100))
 end
 
 function drawclient()
