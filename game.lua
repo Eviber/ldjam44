@@ -9,48 +9,69 @@ local pop = false
 
 require "pools"
 
+local function rmHuman()
+	sfx.bop:play()
+	spawned = false
+	pop = true
+	Timer.after(0.1, function() pop = false end)
+end
+
 function gGame:init()
-	resources = {relations = 20, ego = 20, possessions = 20}
-	cHuman = Human:create()
 end
 
 function gGame:enter()
+	if fromMenu then
+		cHuman = Human:create()
+		Timer.after(0.25, function() spawned = true end)
+		fire:start()
+		fromMenu = false
+	end
 end
 
 function gGame:keypressed(key, scancode, isrepeat)
 	if scancode == 'escape' then
 		Gamestate.switch(gPause)
 	elseif scancode == "return" then
-		Timer.after(0.25, function() spawned = true end)
-		fire:start()
 	elseif scancode == "backspace" then
-		spawned = false
-		pop = true
-		Timer.after(0.1, function() pop = false end)
-		sfx.bop:play()
-		fire:stop()
 	end
 end
 
 function gGame:keyreleased(key, scancode, irepeat)
 	--print(scancode)
-	if scancode == 'space' and lorraine.grantWish() then
+	if scancode == 'space' then
 		cHuman.toRemove = true
+		if lorraine.grantWish() then
+			--animation tampon Accepted
+		else
+			--animation tampon X
+			resources["relations"] = resources["relations"] - 20
+			resources["possessions"] = resources["possessions"] - 20
+			resources["ego"] = resources["ego"] - 20
+		end
+		
 	end
+	
+	
 	if utils:hasValue(scancode, {'1', '2', '3', '4', '5', '6', '7', '8', '9'}) then
 		if cHuman.items[tonumber(scancode)] ~= nil then
-			cHuman.items[tonumber(scancode)].checked = not cHuman.items[tonumber(scancode)].checked --(cHuman.items[tonumber(scancode)].checked == true and false or true)
+			cHuman.items[tonumber(scancode)].checked = not cHuman.items[tonumber(scancode)].checked
 		end
 	end
 end
 
-
 function gGame:update(dt)
-	Timer.update(dt)
-	if cHuman.toRemove then --temporary, will need to animate appearance and disappearance
-		cHuman = Human:create()
+	if cHuman.toRemove then
+		rmHuman()
+		cHuman.toRemove = false
+		Timer.after(0.5,
+			function ()
+				cHuman = Human:create()
+				Timer.after(0.25, function() spawned = true end)
+				fire:start()
+			end)
 	end
 	fire:update(dt)
+	Timer.update(dt)
 end
 
 function drawground()
@@ -73,10 +94,6 @@ function drawcontract()
 	love.graphics.draw(imgs.sp_cont, 0, 0)
 end
 
-function drawcontract_shadow()
-	love.graphics.draw(imgs.sp_cont_s, 0, 0)
-end
-
 function drawsatan_leg()
 	love.graphics.draw(imgs.sp_satan2, 0, 0)
 end
@@ -90,15 +107,15 @@ function drawdesk()
 end
 
 function drawblue()
-	love.graphics.draw(imgs.sp_unit_b, 0, 348 - (348 * resources.possessions / 100))
+	love.graphics.draw(imgs.sp_unit_b, 0, 348 - (348 * resources.possessions / 1000))
 end
 
 function drawgreen()
-	love.graphics.draw(imgs.sp_unit_g, 0, 348 - (348 * resources.relations / 100))
+	love.graphics.draw(imgs.sp_unit_g, 0, 348 - (348 * resources.ego / 1000))
 end
 
 function drawred()
-	love.graphics.draw(imgs.sp_unit_r, 0, 348 - (348 * resources.ego / 100))
+	love.graphics.draw(imgs.sp_unit_r, 0, 348 - (348 * resources.relations / 1000))
 end
 
 function drawclient()
@@ -107,6 +124,10 @@ function drawclient()
 	elseif pop then
 		love.graphics.draw(imgs.bop,900,620)
 	end
+end
+
+function drawwindow()
+	love.graphics.draw(imgs.sp_window, 0, 0)
 end
 
 function gGame:draw()
@@ -121,8 +142,8 @@ function gGame:draw()
 	drawsatan_leg()
 	drawdesk()
 	drawsatan_top()
+	drawwindow()
 	drawcontract()
-	drawcontract_shadow()
 	drawclient()
 
 	lg.setColor(0, 0, 0)
@@ -132,7 +153,7 @@ function gGame:draw()
 		if cHuman.items[i] ~= nil then
 			lg.setColor(unpack(cHuman.items[i].checked == true and {0,1,0} or {0,0,0}))
 			itemNumber = itemNumber + 1
-			lg.print((cHuman.items[i].i.str), 150, 200 + itemNumber* 30)
+			lg.print((cHuman.items[i].str), 150, 200 + itemNumber* 30)
 		end
 	end
 
@@ -140,6 +161,7 @@ function gGame:draw()
 	lg.print(resources.possessions, W-700, 100)
 	lg.print(resources.relations, W-500, 100)
 	lg.print(resources.ego, W-300, 100)
+	
 	vfx.draw()
 	TLfres.endRendering()
 end
