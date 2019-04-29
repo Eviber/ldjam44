@@ -7,6 +7,7 @@ utils = require "utils"
 
 gGame = require "game"
 gMenu = require "menu"
+gOver = require "game_over"
 gCredits = require "credits"
 gPause = require "pause"
 gTuto = require "tuto"
@@ -17,6 +18,8 @@ lg = love.graphics
 isDown = love.keyboard.isDown
 rd = math.random
 
+max_resources = 1000
+gameover_state = 0
 
 
 function loadassets()
@@ -35,6 +38,9 @@ function loadassets()
     sp_penta = lg.newImage("/assets/img/sprite_penta.png"),
     sp_window = lg.newImage("/assets/img/sprite_window.png"),
     bop = lg.newImage("/assets/img/bop.png"),
+	GO_pos = lg.newImage("/assets/img/game_over_pos.png"),
+	GO_rel = lg.newImage("/assets/img/game_over_rel.png"),
+	GO_ego = lg.newImage("/assets/img/game_over_ego.png"),
   }
 	cursor = love.mouse.newCursor("assets/img/cursor.png", 3, 2)
 	za_hand = love.mouse.getSystemCursor("hand")

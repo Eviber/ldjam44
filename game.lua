@@ -6,6 +6,7 @@ local lorraine = require "wish"
 local utils = require "utils"
 local spawned = false
 local pop = false
+local game_end = require "game_end"
 
 require "pools"
 
@@ -25,6 +26,7 @@ function gGame:enter()
 		Timer.after(0.25, function() spawned = true end)
 		fire:start()
 		fromMenu = false
+		gameover_state = 0
 	end
 end
 
@@ -39,6 +41,7 @@ end
 function gGame:keyreleased(key, scancode, irepeat)
 	--print(scancode)
 	if scancode == 'space' then
+		--resolving contract outcome
 		cHuman.toRemove = true
 		if lorraine.grantWish() then
 			--animation tampon Accepted
@@ -48,6 +51,10 @@ function gGame:keyreleased(key, scancode, irepeat)
 			resources["possessions"] = resources["possessions"] - 20
 			resources["ego"] = resources["ego"] - 20
 		end
+		
+		--checking for victory or defeat
+		check_victory()
+		check_defeat()
 		
 	end
 	
@@ -107,15 +114,15 @@ function drawdesk()
 end
 
 function drawblue()
-	love.graphics.draw(imgs.sp_unit_b, 0, 348 - (348 * resources.possessions / 1000))
+	love.graphics.draw(imgs.sp_unit_b, 0, 348 - (348 * resources.possessions / max_resources))
 end
 
 function drawgreen()
-	love.graphics.draw(imgs.sp_unit_g, 0, 348 - (348 * resources.ego / 1000))
+	love.graphics.draw(imgs.sp_unit_g, 0, 348 - (348 * resources.ego / max_resources))
 end
 
 function drawred()
-	love.graphics.draw(imgs.sp_unit_r, 0, 348 - (348 * resources.relations / 1000))
+	love.graphics.draw(imgs.sp_unit_r, 0, 348 - (348 * resources.relations / max_resources))
 end
 
 function drawclient()
