@@ -1,16 +1,16 @@
 local lg = love.graphics
 
 local vfx = {}
-
+-- 1100,840
 function vfx.load()
 
 	fire = lg.newParticleSystem(love.graphics.newImage("/assets/img/fire.png"), 5000)
 	fire:setEmissionRate(2100)
-	fire:setParticleLifetime(1)
+	fire:setParticleLifetime(0.25)
 	fire:setEmissionArea("ellipse", 110, 80)
-	fire:setEmitterLifetime(0.7)
+	fire:setEmitterLifetime(0.25)
 
-	fire:setSpeed(500)
+	fire:setSpeed(2000)
 	fire:setRadialAcceleration(0)
 	fire:setLinearDamping(0)
 
@@ -23,7 +23,7 @@ function vfx.load()
 	               241/255,  0/255, 21/255,1,
 				    68/255, 24/255,  0/255,1)
 
-	fire:setPosition(1110, 960)
+	fire:setPosition(1110, 950)
 	fire:stop()
 	--[[
 	void = lg.newParticleSystem(love.graphics.newImage('pixel.png'))

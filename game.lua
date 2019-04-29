@@ -20,7 +20,7 @@ function gGame:keypressed(key, scancode, isrepeat)
 	if scancode == 'escape' then
 		Gamestate.switch(gPause)
 	elseif scancode == "return" then
-		Timer.after(0.7, function() spawned = true end)
+		Timer.after(0.25, function() spawned = true end)
 		fire:start()
 	elseif scancode == "backspace" then
 		spawned = false
