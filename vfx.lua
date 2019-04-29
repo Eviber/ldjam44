@@ -8,6 +8,7 @@ function vfx.load()
 	fire:setEmissionRate(2100)
 	fire:setParticleLifetime(1)
 	fire:setEmissionArea("ellipse", 110, 80)
+	fire:setEmitterLifetime(0.7)
 
 	fire:setSpeed(500)
 	fire:setRadialAcceleration(0)

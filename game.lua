@@ -1,8 +1,10 @@
+Timer = require "hump.timer"
+
 local gGame = {}
 local Human = require "human"
 local lorraine = require "wish"
 local utils = require "utils"
-local spawned = 0
+local spawned = false
 
 require "pools"
 
@@ -17,14 +19,14 @@ end
 function gGame:keypressed(key, scancode, isrepeat)
 	if scancode == 'escape' then
 		Gamestate.switch(gPause)
-  elseif scancode == "return" then
-    spawned = 1
-    fire:start()
- elseif scancode == "backspace" then
-    spawned = 0
-	sfx.bop:play()
-	fire:stop()
-   end
+	elseif scancode == "return" then
+		Timer.after(0.7, function() spawned = true end)
+		fire:start()
+	elseif scancode == "backspace" then
+		spawned = false
+		sfx.bop:play()
+		fire:stop()
+	end
 end
 
 function gGame:keyreleased(key, scancode, irepeat)
@@ -41,18 +43,19 @@ end
 
 
 function gGame:update(dt)
+	Timer.update(dt)
 	if cHuman.toRemove then --temporary, will need to animate appearance and disappearance
 		cHuman = Human:create()
 	end
-    fire:update(dt)
+	fire:update(dt)
 end
 
 function drawground()
-  love.graphics.draw(imgs.sp_ground,0 ,0)
+	love.graphics.draw(imgs.sp_ground,0 ,0)
 end
 
 function drawpenta()
-  love.graphics.draw(imgs.sp_penta,0,0)
+	love.graphics.draw(imgs.sp_penta,0,0)
 end
 
 function drawbg()
@@ -64,59 +67,59 @@ function drawbg2()
 end
 
 function drawcontract()
-  love.graphics.draw(imgs.sp_cont, 0, 0)
+	love.graphics.draw(imgs.sp_cont, 0, 0)
 end
 
 function drawcontract_shadow()
-  love.graphics.draw(imgs.sp_cont_s, 0, 0)
+	love.graphics.draw(imgs.sp_cont_s, 0, 0)
 end
 
 function drawsatan_leg()
-  love.graphics.draw(imgs.sp_satan2, 0, 0)
+	love.graphics.draw(imgs.sp_satan2, 0, 0)
 end
 
 function drawsatan_top()
-  love.graphics.draw(imgs.sp_satan1, 0, 0)
+	love.graphics.draw(imgs.sp_satan1, 0, 0)
 end
 
 function drawdesk()
- love.graphics.draw(imgs.sp_desk, 0, 0)
+	love.graphics.draw(imgs.sp_desk, 0, 0)
 end
 
 function drawblue()
- love.graphics.draw(imgs.sp_unit_b, 0, 348 - (348 * resources.possessions / 100))
+	love.graphics.draw(imgs.sp_unit_b, 0, 348 - (348 * resources.possessions / 100))
 end
 
 function drawgreen()
- love.graphics.draw(imgs.sp_unit_g, 0, 348 - (348 * resources.relations / 100))
+	love.graphics.draw(imgs.sp_unit_g, 0, 348 - (348 * resources.relations / 100))
 end
 
 function drawred()
- love.graphics.draw(imgs.sp_unit_r, 0, 348 - (348 * resources.ego / 100))
+	love.graphics.draw(imgs.sp_unit_r, 0, 348 - (348 * resources.ego / 100))
 end
 
 function drawclient()
-  if spawned == 1 then 
-    love.graphics.draw(imgs.sp_pnj,0,0)
-  elseif spawned == 0 then
-  end
+	if spawned then
+		love.graphics.draw(imgs.sp_pnj,0,0)
+	elseif spawned == false then
+	end
 end
 
 function gGame:draw()
 	TLfres.beginRendering(1920, 1080)
-  drawbg()
-  drawblue()
-  drawred()
-  drawgreen()
-  drawbg2()
-  drawground()
-  drawpenta()
-  drawsatan_leg()
-  drawdesk()
-  drawsatan_top()
-  drawcontract()
-  drawcontract_shadow()
-  drawclient()
+	drawbg()
+	drawblue()
+	drawred()
+	drawgreen()
+	drawbg2()
+	drawground()
+	drawpenta()
+	drawsatan_leg()
+	drawdesk()
+	drawsatan_top()
+	drawcontract()
+	drawcontract_shadow()
+	drawclient()
 
 	lg.setColor(0, 0, 0)
 	lg.print(cHuman.wish[1], 150, 150)
