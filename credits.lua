@@ -1,5 +1,3 @@
-local Class require"Class"
-
 local button = Button:create(230, 870, 97, 90)
 local Quit = love.graphics.newImage(button.img1)
 local gCredits = {}

@@ -3,26 +3,27 @@ local Item = {}
 function Item:getItems(human)
 	currentVal = 0
 	IZGOOD = false
+	items = {}
 	while not IZGOOD do
-		table.insert(human.items, rdtb(itemsPool))
-		currentVal = currentVal + human.items[#human.items].val
-		if #human.items > 12 then
-			human.items = {}
+		cp = shallowcopy(rdtb(itemsPool))
+		table.insert(items, cp)
+		currentVal = currentVal + items[#items].val
+		print(currentVal, cp.val, human.totVal, cp.str)
+		if #items > 12 then
+			items = {}
 		else
-			if currentVal >= human.totVal * 0.9 then
-				if currentVal <= human.totVal * 1.1 then
-					if #human.items <= 3 then
-						human.items = {}
-					else
-						IZGOOD = true
-					end
+			if currentVal >= human.totVal then
+				if #items <= 3 then
+					items = {}
+					currentVal = 0
+					print()
 				else
-					currentVal = currentVal - human.items[#human.items].val
-					table.remove(human.items, #human.items)
+					IZGOOD = true
 				end
 			end
 		end
 	end
+	return items
 end
 
 

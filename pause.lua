@@ -1,4 +1,3 @@
-local Class require"Class"
 local img = "/assets/img/sprite_pause.png"
 local vin = "/assets/img/Vignette.png"
 local button = Button:create(600, 400, 97, 90)

@@ -10,8 +10,6 @@ local pop = false
 require "pools"
 
 function gGame:init()
-	resources = {relations = 200, ego = 200, possessions = 200}
-	cHuman = Human:create()
 end
 
 function gGame:enter()
@@ -73,10 +71,6 @@ function drawcontract()
 	love.graphics.draw(imgs.sp_cont, 0, 0)
 end
 
-function drawcontract_shadow()
-	love.graphics.draw(imgs.sp_cont_s, 0, 0)
-end
-
 function drawsatan_leg()
 	love.graphics.draw(imgs.sp_satan2, 0, 0)
 end
@@ -127,7 +121,6 @@ function gGame:draw()
 	drawsatan_top()
 	drawwindow()
 	drawcontract()
-	drawcontract_shadow()
 	drawclient()
 
 	lg.setColor(0, 0, 0)
@@ -137,7 +130,7 @@ function gGame:draw()
 		if cHuman.items[i] ~= nil then
 			lg.setColor(unpack(cHuman.items[i].checked == true and {0,1,0} or {0,0,0}))
 			itemNumber = itemNumber + 1
-			lg.print((cHuman.items[i].i.str), 150, 200 + itemNumber* 30)
+			lg.print((cHuman.items[i].str), 150, 200 + itemNumber* 30)
 		end
 	end
 
