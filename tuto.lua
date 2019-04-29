@@ -7,19 +7,19 @@ local gTuto = {}
 local var_s = 1
 local slide = 
 {
-    s1 = love.graphics.newImage("assets/img/Slide1.jpg"),
-    s2 = love.graphics.newImage("assets/img/Slide2.jpg"),
-    s3 = love.graphics.newImage("assets/img/Slide3.jpg"),
-    s4 = love.graphics.newImage("assets/img/Slide4.jpg"),
-    s5 = love.graphics.newImage("assets/img/Slide5.jpg"),
-    s6 = love.graphics.newImage("assets/img/Slide6.jpg"),
-    s7 = love.graphics.newImage("assets/img/Slide7.jpg"),
-    s8 = love.graphics.newImage("assets/img/Slide8.jpg"),
-    s9 = love.graphics.newImage("assets/img/Slide9.jpg"),
-    s10 = love.graphics.newImage("assets/img/Slide10.jpg"),
-    s11 = love.graphics.newImage("assets/img/Slide11.jpg"),
-    s12 = love.graphics.newImage("assets/img/Slide12.jpg"),
-    s13 = love.graphics.newImage("assets/img/Slide13.jpg"),
+    s1 = love.graphics.newImage("assets/img/slide1.jpg"),
+    s2 = love.graphics.newImage("assets/img/slide2.jpg"),
+    s3 = love.graphics.newImage("assets/img/slide3.jpg"),
+    s4 = love.graphics.newImage("assets/img/slide4.jpg"),
+    s5 = love.graphics.newImage("assets/img/slide5.jpg"),
+    s6 = love.graphics.newImage("assets/img/slide6.jpg"),
+    s7 = love.graphics.newImage("assets/img/slide7.jpg"),
+    s8 = love.graphics.newImage("assets/img/slide8.jpg"),
+    s9 = love.graphics.newImage("assets/img/slide9.jpg"),
+    s10 = love.graphics.newImage("assets/img/slide10.jpg"),
+    s11 = love.graphics.newImage("assets/img/slide11.jpg"),
+    s12 = love.graphics.newImage("assets/img/slide12.jpg"),
+    s13 = love.graphics.newImage("assets/img/slide13.jpg"),
 }
     tuto_skip = love.graphics.newImage("assets/img/skip.png")
 
