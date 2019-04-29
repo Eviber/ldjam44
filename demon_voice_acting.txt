@@ -1,0 +1,16 @@
+Mortal arrival lines:
+Greetings.
+What business have you with us?
+So, tell me...
+Make yourself comfortable.
+
+Contract lines:
+We have a deal.
+Sign here, please. In blood of course.
+The contract is ready.
+A pleasure doing business with you.
+
+Rejection lines:
+We are not interested.
+Do not hesitate to come back.
+We'll think about it.
