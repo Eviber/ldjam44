@@ -22,7 +22,7 @@ function gOver:mousereleased(x, y, click_type)
 	Gamestate.switch(gMenu)
 end
 
-function gOver:mousereleased(key, scancode)
+function gOver:keyreleased(key, scancode)
 	if scancode == 'space' then
 		Gamestate.switch(gMenu)
 	end
