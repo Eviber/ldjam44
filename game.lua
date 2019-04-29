@@ -90,8 +90,29 @@ function drawbg2()
 	love.graphics.draw(imgs.bg_front, 0, 0)
 end
 
+function drawfioles()
+	local n = 0
+	if cHuman.wish[2] == 500 then -- oof c'est degeu
+		n = 4
+	elseif cHuman.wish[2] >= 250 then
+		n = 3
+	elseif cHuman.wish[2] >= 150 then
+		n = 2
+	elseif cHuman.wish[2] >= 100 then
+		n = 1
+	end
+	for i = 0, n do
+		lg.draw(fiole[cHuman.wish[3]], 420 + 42 * i)
+	end
+end
+
+function drawclip()
+end
+
 function drawcontract()
 	love.graphics.draw(imgs.sp_cont, 0, 0)
+	drawfioles()
+	drawclip()
 end
 
 function drawsatan_leg()

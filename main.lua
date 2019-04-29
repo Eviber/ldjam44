@@ -48,7 +48,15 @@ function loadassets()
     sp_symb_r = lg.newImage("/assets/img/sprite_symbol_r.png"),
     sp_photo = lg.newImage("/assets/img/sprite_photo.png"),
   }
-  
+
+	con = {
+		tick  = lg.newImage("assets/img/sprite_tickbox_empty.png"),
+	}
+	fiole = {
+		possessions = lg.newImage("assets/img/sprite_vial_b.png"),
+		relations   = lg.newImage("assets/img/sprite_vial_r.png"),
+		ego         = lg.newImage("assets/img/sprite_vial_g.png"),
+	}
 	cursor = love.mouse.newCursor("assets/img/cursor.png", 3, 2)
 	za_hand = love.mouse.getSystemCursor("hand")
 	sfx.load()
