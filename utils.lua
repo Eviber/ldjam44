@@ -9,5 +9,9 @@ function utils:hasValue(seek, tab)
 	return false
 end
 
+function rdtb(tbl)
+	return (tbl[rd(#tbl)])
+end
+
 
 return utils

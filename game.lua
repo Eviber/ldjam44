@@ -2,7 +2,6 @@
 local gGame = {}
 local Human = require "human"
 local lorraine = require "wish"
-local utils = require "utils"
 local spawned = 0
 
 require "pools"

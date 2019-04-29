@@ -6,13 +6,11 @@ Human = {wish, items, appearance = nil, toRemove = false}
 
 Human.__index = Human
 
-local function rdtb(tbl)
-	return (tbl[rd(#tbl)])
-end
 
 local function getwish()
 	return rdtb(rdtb(wishesPool))
 end
+
 
 local function sortitems(items)
 	local function s(a,b)
@@ -25,7 +23,7 @@ local function sortitems(items)
 	table.sort(items, s)
 end
 
-local function getItems()
+--[[local function getItems()
 	local items = {}
 
 	for i = 1, rd(20) do
@@ -42,7 +40,7 @@ local function getItems()
 	end
 	print()
 	return items
-end
+end]]
 
 function Human:create(appearance)
 	local hooman = {}
@@ -50,11 +48,13 @@ function Human:create(appearance)
 	hooman.wish = getwish()
 	hooman.name = gibName()
 	print("Name: " .. hooman.name)
-	hooman.items = getItems()
-	hooman.appearance = appearance
-	hooman.toRemove = toRemove
 	hooman.ratio = rdtb({1.1, 1.3, 1.5})
 	hooman.totVal = hooman.wish[2] * rdtb({1.8, 2.0, 2.2})
+	hooman.items = {}
+	Item:getItems(hooman)
+	hooman.appearance = appearance
+	hooman.toRemove = toRemove
+	
 	return hooman
 end
 

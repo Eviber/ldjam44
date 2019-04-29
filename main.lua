@@ -3,6 +3,7 @@ TLfres = require "tlfres"
 
 sfx = require "sfx"
 vfx = require "vfx"
+utils = require "utils"
 
 gGame = require "game"
 gMenu = require "menu"
@@ -12,6 +13,8 @@ gPause = require "pause"
 lg = love.graphics
 isDown = love.keyboard.isDown
 rd = math.random
+
+
 
 function loadassets()
 	imgs = {
