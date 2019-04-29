@@ -107,6 +107,13 @@ function drawfioles()
 end
 
 function drawclip()
+	if cHuman.ratio == 1.25 then
+		lg.draw(clip.g, 420, 200)
+	elseif cHuman.ratio == 1.5 then
+		lg.draw(clip.y, 420, 200)
+	elseif cHuman.ratio == 2 then
+		lg.draw(clip.r, 420, 200)
+	end
 end
 
 function drawcontract()
