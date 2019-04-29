@@ -1,4 +1,5 @@
 require "button"
+tuto_on = true
 
 local button = Button:create(1250, 150, 97, 90)
 local button2 = Button:create(1250, 350, 97, 90)
@@ -48,7 +49,11 @@ function gMenu:mousereleased(x, y, click_type)
   x,y = TLfres.getMousePosition(1920,1080)
  if button:isclicked(x,y) == true then
     NewGame = love.graphics.newImage(button.img1)
-    Gamestate.switch(gTuto)
+    if tuto_on == true then
+        Gamestate.switch(gTuto)
+    elseif tuto_on == false then
+        Gamestate.switch(gGame)
+    end
   elseif button2:isclicked(x,y) == true then
     Credits = love.graphics.newImage(button2.img1)
     Gamestate.switch(gCredits)
@@ -59,9 +64,7 @@ function gMenu:mousereleased(x, y, click_type)
 end   
   
 function gMenu:keypressed(key, scancode, isrepeat)
-	if scancode == 'space' then
-    Gamestate.switch(gGame)
-  elseif scancode == 'escape' then
+if scancode == 'escape' then
 		love.event.quit()
 	end
 end

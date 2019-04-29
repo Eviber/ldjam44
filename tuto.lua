@@ -1,9 +1,10 @@
-local Class = require"Class"
+local Class = require"button"
 local button = Button:create(1600, 960, 97, 90)
 local skip = love.graphics.newImage(button.img1)
 
+
 local gTuto = {}
-local var_s = 0
+local var_s = 1
 local slide = 
 {
     s1 = love.graphics.newImage("assets/img/Slide1.jpg"),
@@ -33,9 +34,7 @@ function gTuto:update(dt)
 end
 
 function sliders()
-  if var_s == 0 then
-    love.graphics.draw(slide.s1,0,0)
-  elseif var_s == 1 then
+  if var_s == 1 then
     love.graphics.draw(slide.s1,0,0)
   elseif var_s == 2 then
     love.graphics.draw(slide.s2,0,0)
@@ -62,6 +61,7 @@ function sliders()
   elseif var_s == 13 then
     love.graphics.draw(slide.s13,0,0)
   elseif var_s == 14 then 
+    tuto_on = false
     Gamestate.switch(gGame)
   end
 end
@@ -78,7 +78,7 @@ end
 function gTuto:mousepressed(x, y, click_type)
   x,y = TLfres.getMousePosition(1920,1080)
    if button:isclicked(x,y) == true then
-    NewGame = love.graphics.newImage(button.img2)
+    skip = love.graphics.newImage(button.img2)
   end
 end
 
@@ -86,6 +86,7 @@ function gTuto:mousereleased(x, y, click_type)
   x,y = TLfres.getMousePosition(1920,1080)
   if button:isclicked(x,y) == true then
     skip = love.graphics.newImage(button.img1)
+    tuto_on = false
     Gamestate.switch(gGame)
   else
     var_s = var_s + 1    
@@ -94,6 +95,7 @@ end
   
 function gTuto:keypressed(key, scancode, isrepeat)
 	if scancode == 'space' then
+      var_s = var_s + 1
   end
 end
 
