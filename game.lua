@@ -22,6 +22,7 @@ function gGame:keypressed(key, scancode, isrepeat)
     fire:start()
  elseif scancode == "backspace" then
     spawned = 0
+	sfx.bop:play()
 	fire:stop()
    end
 end

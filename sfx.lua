@@ -1,6 +1,7 @@
 local sfx = {}
 
 function sfx.load()
+	sfx.bop = love.audio.newSource("assets/sfx/bop.wav", "static")
 --[[
 	sfx.shaman = {}
 	sfx.shaman.up = love.audio.newSource("assets/audio/Shaman/shaman_up.wav", "static")
