@@ -20,9 +20,12 @@ function gGame:init()
 end
 
 function gGame:enter()
-	cHuman = Human:create()
-	Timer.after(0.25, function() spawned = true end)
-	fire:start()
+	if fromMenu then
+		cHuman = Human:create()
+		Timer.after(0.25, function() spawned = true end)
+		fire:start()
+		fromMenu = false
+	end
 end
 
 function gGame:keypressed(key, scancode, isrepeat)
