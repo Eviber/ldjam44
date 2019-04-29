@@ -1,3 +1,4 @@
+
 local gGame = {}
 local Human = require "human"
 local lorraine = require "wish"
@@ -19,9 +20,11 @@ function gGame:keypressed(key, scancode, isrepeat)
 		Gamestate.switch(gPause)
   elseif scancode == "return" then
     spawned = 1
-  elseif scancode == "backspace" then
+    fire:start()
+ elseif scancode == "backspace" then
     spawned = 0
-  end
+	fire:stop()
+   end
 end
 
 function gGame:keyreleased(key, scancode, irepeat)
@@ -41,6 +44,7 @@ function gGame:update(dt)
 	if cHuman.toRemove then --temporary, will need to animate appearance and disappearance
 		cHuman = Human:create()
 	end
+    fire:update(dt)
 end
 
 function drawground()
@@ -104,7 +108,7 @@ end
 
 function gGame:draw()
 	TLfres.beginRendering(1920, 1080)
-	drawbg()
+  drawbg()
   drawblue()
   drawred()
   drawgreen()
@@ -118,6 +122,7 @@ function gGame:draw()
   drawcontract()
   drawcontract_shadow()
   drawclient()
+
 	lg.setColor(0, 0, 0)
 	lg.print(cHuman.wish[1], 150, 150)
 	local itemNumber = 0
@@ -134,7 +139,7 @@ function gGame:draw()
 	lg.print(resources.relations, W-500, 100)
 	lg.print(resources.ego, W-300, 100)
 	vfx.draw()
-	TLfres.endRendering({0,1,0,1})
+	TLfres.endRendering()
 end
 
 return gGame
