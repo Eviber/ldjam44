@@ -21,6 +21,8 @@ function gMenu:enter()
 	fromMenu = true
 	accepted = false
 	denied = false
+	Timer.clear()
+	fire:stop()
 end
 
 function gMenu:update(dt)

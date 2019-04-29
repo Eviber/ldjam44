@@ -1,5 +1,7 @@
 Gamestate = require "hump.gamestate"
 TLfres = require "tlfres"
+Timer = require "hump.timer"
+
 
 sfx = require "sfx"
 vfx = require "vfx"

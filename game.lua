@@ -1,5 +1,3 @@
-Timer = require "hump.timer"
-
 local gGame = {}
 local Human = require "human"
 local lorraine = require "wish"
