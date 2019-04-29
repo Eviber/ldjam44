@@ -10,15 +10,10 @@ function Item:getItems(human)
 			human.items = {}
 		else
 			if currentVal >= human.totVal * 0.9 then
-				if currentVal <= human.totVal * 1.1 then
-					if #human.items <= 3 then
-						human.items = {}
-					else
-						IZGOOD = true
-					end
+				if #human.items <= 3 then
+					human.items = {}
 				else
-					currentVal = currentVal - human.items[#human.items].val
-					table.remove(human.items, #human.items)
+					IZGOOD = true
 				end
 			end
 		end
