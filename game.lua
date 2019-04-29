@@ -5,6 +5,7 @@ local Human = require "human"
 local lorraine = require "wish"
 local utils = require "utils"
 local spawned = false
+local pop = false
 
 require "pools"
 
@@ -24,6 +25,8 @@ function gGame:keypressed(key, scancode, isrepeat)
 		fire:start()
 	elseif scancode == "backspace" then
 		spawned = false
+		pop = true
+		Timer.after(0.1, function() pop = false end)
 		sfx.bop:play()
 		fire:stop()
 	end
@@ -101,7 +104,8 @@ end
 function drawclient()
 	if spawned then
 		love.graphics.draw(imgs.sp_pnj,0,0)
-	elseif spawned == false then
+	elseif pop then
+		love.graphics.draw(imgs.bop,900,620)
 	end
 end
 
