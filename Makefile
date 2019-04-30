@@ -1,4 +1,4 @@
-NAME=TEMPORARYNAME
+NAME=WhatDoYouWant
 
 RESOURCES= assets/ shack/ hump/ icon_insta.png icon_twitter.png
 

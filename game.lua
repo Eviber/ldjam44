@@ -234,9 +234,9 @@ function gGame:draw()
 	end
 
 	lg.setColor(1,1,1)
-	lg.print(resources.possessions, W-700, 100)
-	lg.print(resources.relations, W-500, 100)
-	lg.print(resources.ego, W-300, 100)
+	--lg.print(resources.possessions, W-700, 100)
+	--lg.print(resources.relations, W-500, 100)
+	--lg.print(resources.ego, W-300, 100)
 	
 	drawstamp()
 	vfx.draw()
