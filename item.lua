@@ -8,7 +8,7 @@ function Item:getItems(human)
 		cp = shallowcopy(rdtb(itemsPool))
 		table.insert(items, cp)
 		currentVal = currentVal + items[#items].val
-		print(currentVal, cp.val, human.totVal, cp.str)
+		--print(currentVal, cp.val, human.totVal, cp.str)
 		if #items > 10 then
 			items = {}
 		else
@@ -16,7 +16,7 @@ function Item:getItems(human)
 				if #items <= 3 then
 					items = {}
 					currentVal = 0
-					print()
+					--print()
 				else
 					IZGOOD = true
 				end

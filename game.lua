@@ -228,13 +228,21 @@ function gGame:draw()
       else
         test = b1
 
-      end
+    end
+            if cHuman.items[i].cat == "possessions" then
+          lg.draw(symbol.pos,tick_tab[i].x +20,tick_tab[i].y +5)
+        elseif cHuman.items[i].cat == "ego" then
+          lg.draw(symbol.ego,tick_tab[i].x +10,tick_tab[i].y +5)
+        elseif cHuman.items[i].cat == "relations" then
+          lg.draw(symbol.rel,tick_tab[i].x +10,tick_tab[i].y +10)
+        end
 	  if tick_tab[i].click then
         	lg.draw(test, tick_tab[i].x - 11, tick_tab[i].y - 32)
 		else
         	lg.draw(test, tick_tab[i].x, tick_tab[i].y)
 		end
-        lg.print((cHuman.items[i].str), tick_tab[i].x + 80, tick_tab[i].y + 30)
+        lg.print((cHuman.items[i].str), tick_tab[i].x + 80, tick_tab[i].y + 10)
+
 		end
 	end
 
