@@ -51,11 +51,14 @@ function loadassets()
     sp_vial_r = lg.newImage("/assets/img/sprite_vial_r.png"),
     sp_vial_g = lg.newImage("/assets/img/sprite_vial_g.png"),
     sp_vial_b = lg.newImage("/assets/img/sprite_vial_b.png"),
-    sp_symb_b = lg.newImage("/assets/img/sprite_symbol_b.png"),
-    sp_symb_g = lg.newImage("/assets/img/sprite_symbol_g.png"),
-    sp_symb_r = lg.newImage("/assets/img/sprite_symbol_r.png"),
     sp_photo = lg.newImage("/assets/img/sprite_photo.png"),
     sp_chair = lg.newImage("/assets/img/sprite_chair.png"),
+  }
+
+  symbol ={
+    pos = lg.newImage("/assets/img/sprite_symbol_b.png"),
+    ego = lg.newImage("/assets/img/sprite_symbol_g.png"),
+    rel = lg.newImage("/assets/img/sprite_symbol_r.png"),
   }
 
 	stamps = {
