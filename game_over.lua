@@ -3,8 +3,13 @@ local gOverImg
 
 function gOver:enter()
 	if gameover_state == 1 then
-		--winscreen
-		Gamestate.switch(gMenu)
+		if resources.possessions >= max_resources then
+			gOverImg = imgs.WIN_pos
+		elseif resources.relations >= max_resources then
+			gOverImg = imgs.WIN_rel
+		elseif resources.ego >= max_resources then
+			gOverImg = imgs.WIN_ego
+		end
 	elseif gameover_state == -1 then
 		if resources.possessions <= 0 then
 			gOverImg = imgs.GO_pos
