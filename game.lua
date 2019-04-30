@@ -213,7 +213,11 @@ function gGame:draw()
         test = b1
 
       end
-        lg.draw(test, tick_tab[i].x, tick_tab[i].y)
+	  if tick_tab[i].click then
+        	lg.draw(test, tick_tab[i].x - 11, tick_tab[i].y - 32)
+		else
+        	lg.draw(test, tick_tab[i].x, tick_tab[i].y)
+		end
         lg.print((cHuman.items[i].str), tick_tab[i].x + 80, tick_tab[i].y + 30)
 		end
 	end
