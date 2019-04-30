@@ -16,7 +16,7 @@ function gMenu:init()
 end
 
 function gMenu:enter()
-	resources = {relations = 500, ego = 500, possessions = 500}
+	resources = {relations = 1000, ego = 1000, possessions = 1000}
 	cHuman = Human:create()
 	fromMenu = true
 	accepted = false

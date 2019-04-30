@@ -10,7 +10,6 @@ function gOver:enter()
 		elseif resources.ego >= max_resources then
 			gOverImg = imgs.WIN_ego
 		end
-		Gamestate.switch(gMenu)
 	elseif gameover_state == -1 then
 		if resources.possessions <= 0 then
 			gOverImg = imgs.GO_pos

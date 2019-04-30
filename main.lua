@@ -18,7 +18,7 @@ lg = love.graphics
 isDown = love.keyboard.isDown
 rd = math.random
 
-max_resources = 1000
+max_resources = 3000
 gameover_state = 0
 
 
