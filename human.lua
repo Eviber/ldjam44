@@ -33,12 +33,14 @@ local function getItems()
 		}
 	end
 	sortitems(items)
+--[[
 	for i = 1, #itemsPool do
 		if items[i] then
 			print(items[i].i.str)
 		end
 	end
 	print()
+]]
 	return items
 end
 
@@ -47,7 +49,7 @@ function Human:create(appearance)
 	setmetatable(hooman, Human)
 	hooman.wish = getwish()
 	hooman.name = gibName()
-	print("Name: " .. hooman.name)
+	--print("Name: " .. hooman.name)
 	hooman.ratio = rdtb({1.25, 1.5, 2})
 	hooman.totVal = math.max(100, hooman.wish[2] * rdtb({1.8, 2.0, 2.2}))
 	--hooman.items = {}
