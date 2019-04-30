@@ -20,7 +20,7 @@ lg = love.graphics
 isDown = love.keyboard.isDown
 rd = math.random
 
-max_resources = 1000
+max_resources = 3000
 gameover_state = 0
 
 
@@ -43,6 +43,9 @@ function loadassets()
 	GO_pos = lg.newImage("/assets/img/game_over_pos.png"),
 	GO_rel = lg.newImage("/assets/img/game_over_rel.png"),
 	GO_ego = lg.newImage("/assets/img/game_over_ego.png"),
+	WIN_pos = lg.newImage("/assets/img/win_pos.png"),
+	WIN_rel = lg.newImage("/assets/img/win_rel.png"),
+	WIN_ego = lg.newImage("/assets/img/win_ego.png"),
   }
 
 	stamps = {
