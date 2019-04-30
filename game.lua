@@ -17,6 +17,8 @@ local function rmHuman()
 end
 
 function gGame:init()
+	b1 = love.graphics.newImage("/assets/img/sprite_tickbox_empty.png")
+	b2 = love.graphics.newImage("/assets/img/sprite_tickbox.png")
 end
 
 function gGame:enter()
@@ -75,7 +77,7 @@ function gGame:update(dt)
     			tick_tab = {}
     
     			for i = 1, #cHuman.items do
-    				tick_tab[i] = Tick:create(150, 340 + i%6 * 80, 45, 45)
+    				tick_tab[i] = Tick:create(150, 340 + i%6 * 80, 67, 67)
     			end
 				Timer.after(0.25, function() spawned = true end)
 				fire:start()
@@ -206,9 +208,9 @@ function gGame:draw()
         tick_tab[i].y = (340 + (itemNumber% 5 ) * 80)        
       end 
       if tick_tab[i].click == true then
-        test = love.graphics.newImage(tick_tab[i].img2)
+        test = b2
       else
-        test = love.graphics.newImage(tick_tab[i].img1)
+        test = b1
 
       end
         lg.draw(test, tick_tab[i].x, tick_tab[i].y)
