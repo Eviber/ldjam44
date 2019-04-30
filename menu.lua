@@ -23,9 +23,15 @@ function gMenu:enter()
 	denied = false
 	Timer.clear()
 	fire:stop()
+	cigar:start()
+end
+
+function gMenu:leave()
+	--cigar:stop()
 end
 
 function gMenu:update(dt)
+	cigar:update(dt)
 end
 
 function gMenu:draw()
@@ -35,6 +41,7 @@ function gMenu:draw()
   love.graphics.draw(NewGame, button.x, button.y)
   love.graphics.draw(Credits, button2.x, button2.y)
   love.graphics.draw(Quit, button3.x, button3.y)
+	lg.draw(cigar)
 	TLfres.endRendering({0,0,0,0})
 
 end

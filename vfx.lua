@@ -1,7 +1,7 @@
 local lg = love.graphics
 
 local vfx = {}
--- 1100,840
+
 function vfx.load()
 
 	fire = lg.newParticleSystem(love.graphics.newImage("/assets/img/fire.png"), 5000)
@@ -25,6 +25,28 @@ function vfx.load()
 
 	fire:setPosition(1110, 950)
 	fire:stop()
+
+	cigar = lg.newParticleSystem(love.graphics.newImage("/assets/img/fire.png"))
+	cigar:setEmissionRate(10)
+	cigar:setParticleLifetime(10)
+	cigar:setEmissionArea("ellipse", 10, 10)
+
+	cigar:setSpeed(100)
+	cigar:setRadialAcceleration(0)
+	cigar:setLinearDamping(0)
+
+	cigar:setDirection(-math.pi/2)
+	cigar:setSpread(0)
+
+	cigar:setSizes(1.2, 1, 0.1)
+	cigar:setSizeVariation(0.2)
+	cigar:setColors(125/255,125/255,125/255,0.5,
+					125/255,125/255,125/255,0.5,
+					255/255,255/255,255/255,0.5)
+
+	cigar:setPosition(1100,840)
+	cigar:stop()
+
 	--[[
 	void = lg.newParticleSystem(love.graphics.newImage('pixel.png'))
 	void:setParticleLifetime(2)
