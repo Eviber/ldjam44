@@ -102,17 +102,17 @@ function drawfioles()
 		n = 1
 	end
 	for i = 0, n do
-		lg.draw(fiole[cHuman.wish[3]], 420 + 42 * i)
+		lg.draw(fiole[cHuman.wish[3]], 363 + 73 * i, 211)
 	end
 end
 
 function drawclip()
 	if cHuman.ratio == 1.25 then
-		lg.draw(clip.g, 420, 200)
+		lg.draw(clip.r, 124, 33)
 	elseif cHuman.ratio == 1.5 then
-		lg.draw(clip.y, 420, 200)
+		lg.draw(clip.y, 124, 33)
 	elseif cHuman.ratio == 2 then
-		lg.draw(clip.r, 420, 200)
+		lg.draw(clip.g, 124, 33)
 	end
 end
 
@@ -176,9 +176,11 @@ function gGame:draw()
 	drawcontract()
 	drawclient()
 
+	lg.setFont(fonts.wishFont)
 	lg.setColor(0, 0, 0)
-	lg.print(cHuman.wish[1], 150, 150)
+	lg.print(cHuman.wish[1], 363, 105)
 	local itemNumber = 0
+	lg.setFont(fonts.itemFont)
 	for i = 0, #cHuman.items do
 		if cHuman.items[i] ~= nil then
 			lg.setColor(unpack(cHuman.items[i].checked == true and {0,1,0} or {0,0,0}))

@@ -45,6 +45,11 @@ function loadassets()
     sp_symb_r = lg.newImage("/assets/img/sprite_symbol_r.png"),
     sp_photo = lg.newImage("/assets/img/sprite_photo.png"),
   }
+  
+	fonts = {
+		wishFont = lg.newFont("/assets/COPRGTB.TTF", 28),
+		itemFont = lg.newFont("/assets/COPRGTB.TTF", 22),
+	}
 
 	con = {
 		tick  = lg.newImage("assets/img/sprite_tickbox_empty.png"),
