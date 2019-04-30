@@ -83,7 +83,7 @@ itemsPool =
 
 	-- relations
 	makeitem("Kid", items.v1, "relations"),
-	makeitem("Love", items.v2, "relations"),
+	makeitem("Lover", items.v2, "relations"),
 	makeitem("Friendship", items.v3, "relations"),
 	makeitem("Pet", items.v4, "relations"),
 	makeitem("Acquaintance", items.v5, "relations"),
