@@ -101,10 +101,37 @@ function drawbg2()
 	love.graphics.draw(imgs.bg_front, 0, 0)
 end
 
+function drawfioles()
+	local n = 0
+	if cHuman.wish[2] == 500 then -- oof c'est degeu
+		n = 4
+	elseif cHuman.wish[2] >= 250 then
+		n = 3
+	elseif cHuman.wish[2] >= 150 then
+		n = 2
+	elseif cHuman.wish[2] >= 100 then
+		n = 1
+	end
+	for i = 0, n do
+		lg.draw(fiole[cHuman.wish[3]], 363 + 73 * i, 211)
+	end
+end
+
+function drawclip()
+	if cHuman.ratio == 1.25 then
+		lg.draw(clip.r, 124, 33)
+	elseif cHuman.ratio == 1.5 then
+		lg.draw(clip.y, 124, 33)
+	elseif cHuman.ratio == 2 then
+		lg.draw(clip.g, 124, 33)
+	end
+end
 
 function drawcontract()
 	love.graphics.draw(imgs.sp_cont, 0, 0)
   love.graphics.draw(imgs.sp_photo,0,0)
+	drawfioles()
+	drawclip()
 end
 
 function drawsatan_leg()
@@ -163,9 +190,12 @@ function gGame:draw()
 	drawwindow()
 	drawcontract()
 	drawclient()
-  lg.setColor(1,1,1,1)
 	lg.print(cHuman.wish[1], 150, 150)
+	lg.setFont(fonts.wishFont)
+	lg.setColor(0, 0, 0)
+	lg.print(cHuman.wish[1], 363, 105)
 	local itemNumber = 0
+	lg.setFont(fonts.itemFont)
 	for i = 1, #cHuman.items do
 		if cHuman.items[i] ~= nil then
 			lg.setColor(unpack(cHuman.items[i].checked == true and {0,1,0} or {0,0,0}))

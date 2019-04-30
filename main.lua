@@ -37,9 +37,6 @@ function loadassets()
     bop = lg.newImage("/assets/img/bop.png"),
     sp_tick1 = lg.newImage("/assets/img/sprite_tickbox_empty.png"),
     sp_tick2 = lg.newImage("/assets/img/sprite_tickbox.png"),
-    sp_trom_g = lg.newImage("/assets/img/sprite_tromb_g.png"),
-    sp_trom_y = lg.newImage("/assets/img/sprite_tromb_y.png"),
-    sp_trom_r = lg.newImage("/assets/img/sprite_tromb_r.png"),
     sp_vial_r = lg.newImage("/assets/img/sprite_vial_r.png"),
     sp_vial_g = lg.newImage("/assets/img/sprite_vial_g.png"),
     sp_vial_b = lg.newImage("/assets/img/sprite_vial_b.png"),
@@ -49,6 +46,25 @@ function loadassets()
     sp_photo = lg.newImage("/assets/img/sprite_photo.png"),
   }
   
+	fonts = {
+		wishFont = lg.newFont("/assets/COPRGTB.TTF", 28),
+		itemFont = lg.newFont("/assets/COPRGTB.TTF", 22),
+	}
+
+	con = {
+		tick  = lg.newImage("assets/img/sprite_tickbox_empty.png"),
+	}
+	fiole = {
+		possessions = lg.newImage("assets/img/sprite_vial_b.png"),
+		relations   = lg.newImage("assets/img/sprite_vial_r.png"),
+		ego         = lg.newImage("assets/img/sprite_vial_g.png"),
+	}
+	clip = {
+		g = lg.newImage("/assets/img/sprite_tromb_g.png"),
+		y = lg.newImage("/assets/img/sprite_tromb_y.png"),
+		r = lg.newImage("/assets/img/sprite_tromb_r.png"),
+	}
+
 	cursor = love.mouse.newCursor("assets/img/cursor.png", 3, 2)
 	za_hand = love.mouse.getSystemCursor("hand")
 	sfx.load()
