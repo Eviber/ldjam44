@@ -55,6 +55,7 @@ function loadassets()
     sp_symb_g = lg.newImage("/assets/img/sprite_symbol_g.png"),
     sp_symb_r = lg.newImage("/assets/img/sprite_symbol_r.png"),
     sp_photo = lg.newImage("/assets/img/sprite_photo.png"),
+    sp_chair = lg.newImage("/assets/img/sprite_chair.png"),
   }
 
 	stamps = {
@@ -65,6 +66,7 @@ function loadassets()
 	fonts = {
 		wishFont = lg.newFont("/assets/COPRGTB.TTF", 28),
 		itemFont = lg.newFont("/assets/COPRGTB.TTF", 22),
+    spaceFont = lg.newFont("/assets/COPRGTB.TTF", 20),
 	}
 
 	con = {

@@ -180,6 +180,10 @@ function drawwindow()
 	love.graphics.draw(imgs.sp_window, 0, 0)
 end
 
+function drawchair()
+	love.graphics.draw(imgs.sp_chair, 0, 0)
+end
+
 local function drawstamp()
 	if accepted then
 		lg.draw(stamps.accepted)
@@ -197,6 +201,7 @@ function gGame:draw()
 	drawbg2()
 	drawground()
 	drawpenta()
+  drawchair()
 	drawsatan_leg()
 	drawdesk()
 	drawsatan_top()
@@ -239,6 +244,9 @@ function gGame:draw()
 	lg.print(resources.ego, W-300, 100)
 	
 	drawstamp()
+  lg.setColor(0,0,0)
+  lg.setFont(fonts.spaceFont)
+  lg.print("Press Space to make an offer", 270, 810)
 	vfx.draw()
 	TLfres.endRendering()
 end
