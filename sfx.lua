@@ -1,6 +1,10 @@
 local sfx = {}
 
 function sfx.load()
+	sfx.bop = love.audio.newSource("assets/sfx/bop.wav", "static")
+	music = love.audio.newSource("assets/sfx/music/music.mp3", "stream")
+	music:setLooping(true)
+	music:play()
 --[[
 	sfx.shaman = {}
 	sfx.shaman.up = love.audio.newSource("assets/audio/Shaman/shaman_up.wav", "static")
