@@ -234,7 +234,7 @@ function gGame:draw()
 		else
         	lg.draw(test, tick_tab[i].x, tick_tab[i].y)
 		end
-        lg.print((cHuman.items[i].str), tick_tab[i].x + 80, tick_tab[i].y + 30)
+        lg.print((cHuman.items[i].str), tick_tab[i].x + 80, tick_tab[i].y + 10)
 		end
 	end
 
