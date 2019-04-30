@@ -22,6 +22,12 @@ end
 function gGame:enter()
 	if fromMenu then
 		cHuman = Human:create()
+    tick_tab = {}
+    
+    for i = 1, #cHuman.items do
+    tick_tab[i] = Tick:create(150, 340 + i%6 * 80, 45, 45)
+    end
+    
 		Timer.after(0.25, function() spawned = true end)
 		fire:start()
 		fromMenu = false
@@ -90,8 +96,10 @@ function drawbg2()
 	love.graphics.draw(imgs.bg_front, 0, 0)
 end
 
+
 function drawcontract()
 	love.graphics.draw(imgs.sp_cont, 0, 0)
+  love.graphics.draw(imgs.sp_photo,0,0)
 end
 
 function drawsatan_leg()
@@ -130,6 +138,9 @@ function drawwindow()
 	love.graphics.draw(imgs.sp_window, 0, 0)
 end
 
+ 
+
+
 
 
 function gGame:draw()
@@ -147,15 +158,25 @@ function gGame:draw()
 	drawwindow()
 	drawcontract()
 	drawclient()
-
-	lg.setColor(0, 0, 0)
+  lg.setColor(1,1,1,1)
 	lg.print(cHuman.wish[1], 150, 150)
 	local itemNumber = 0
 	for i = 0, #cHuman.items do
 		if cHuman.items[i] ~= nil then
 			lg.setColor(unpack(cHuman.items[i].checked == true and {0,1,0} or {0,0,0}))
 			itemNumber = itemNumber + 1
-			lg.print((cHuman.items[i].str), 150, 200 + itemNumber* 30)
+      lg.setColor(1,1,1,1)
+      if i > 5 then
+        tick_tab[i].x = 450
+        tick_tab[i].y = (340 + (itemNumber% 5 ) * 80)        
+      end 
+      if tick_tab[i].click == true then
+        test = love.graphics.newImage(tick_tab[i].img2)
+      else
+        test = love.graphics.newImage(tick_tab[i].img1)
+      end
+        lg.draw(test, tick_tab[i].x, tick_tab[i].y)
+        lg.print((cHuman.items[i].str), tick_tab[i].x + 80, tick_tab[i].y + 30)
 		end
 	end
 
@@ -167,5 +188,14 @@ function gGame:draw()
 	vfx.draw()
 	TLfres.endRendering()
 end
+
+function gGame:mousereleased(x, y, click_type)
+  x,y = TLfres.getMousePosition(1920,1080)
+  for i = 1, #tick_tab do
+    if tick_tab[i]:isclicked(x,y) == true then
+      tick_tab[i].click = true
+    end
+  end
+end  
 
 return gGame
