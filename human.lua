@@ -33,14 +33,14 @@ local function getItems()
 		}
 	end
 	sortitems(items)
---[[
+	--[[
 	for i = 1, #itemsPool do
-		if items[i] then
-			print(items[i].i.str)
-		end
+	if items[i] then
+	print(items[i].i.str)
+	end
 	end
 	print()
-]]
+	]]
 	return items
 end
 
@@ -57,7 +57,7 @@ function Human:create(appearance)
 	--hooman.items = getItems()
 	hooman.appearance = appearance
 	hooman.toRemove = toRemove
-	
+
 	return hooman
 end
 

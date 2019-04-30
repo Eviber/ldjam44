@@ -11,7 +11,7 @@ function Wish:grantWish()
 			taken[a] = item
 		end
 	end
-	
+
 	if offer <= cHuman.wish[2] * cHuman.ratio then
 		for i = 1, #taken do
 			resources[taken[i].cat] = resources[taken[i].cat] + taken[i].val

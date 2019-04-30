@@ -18,7 +18,7 @@ function gOver:enter()
 		elseif resources.ego <= 0 then
 			gOverImg = imgs.GO_ego
 		end
-		
+
 	end
 end
 
@@ -41,6 +41,6 @@ function gOver:draw()
 	TLfres.endRendering({0,0,0,0})
 end
 
-	
-	
+
+
 return gOver

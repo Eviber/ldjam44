@@ -27,49 +27,49 @@ gameover_state = 0
 function loadassets()
 	imgs = {
 		bg_back = lg.newImage("/assets/img/bg_back.png"),
-    bg_front = lg.newImage("/assets/img/bg_front.png"),
-    sp_desk = lg.newImage("/assets/img/sprite_desk.png"),
-    sp_pnj = lg.newImage("/assets/img/sprite_pnj.png"),
-    sp_satan1 = lg.newImage("/assets/img/sprite_satan_12.png"),
-    sp_satan2 = lg.newImage("/assets/img/sprite_satan_22.png"),
-    sp_ground = lg.newImage("/assets/img/sprite_ground.png"),
-    sp_cont = lg.newImage("/assets/img/sprite_contract.png"),
-    sp_unit_b = lg.newImage("/assets/img/sprite_blue_unit.png"),
-    sp_unit_g = lg.newImage("/assets/img/sprite_green_unit.png"),
-    sp_unit_r = lg.newImage("/assets/img/sprite_red_unit.png"),
-    sp_penta = lg.newImage("/assets/img/sprite_penta.png"),
-    sp_window = lg.newImage("/assets/img/sprite_window.png"),
-    bop = lg.newImage("/assets/img/bop.png"),
-	GO_pos = lg.newImage("/assets/img/game_over_pos.png"),
-	GO_rel = lg.newImage("/assets/img/game_over_rel.png"),
-	GO_ego = lg.newImage("/assets/img/game_over_ego.png"),
-	WIN_pos = lg.newImage("/assets/img/win_pos.png"),
-	WIN_rel = lg.newImage("/assets/img/win_rel.png"),
-	WIN_ego = lg.newImage("/assets/img/win_ego.png"),
-    sp_tick1 = lg.newImage("/assets/img/sprite_tickbox_empty.png"),
-    sp_tick2 = lg.newImage("/assets/img/sprite_tickbox.png"),
-    sp_vial_r = lg.newImage("/assets/img/sprite_vial_r.png"),
-    sp_vial_g = lg.newImage("/assets/img/sprite_vial_g.png"),
-    sp_vial_b = lg.newImage("/assets/img/sprite_vial_b.png"),
-    sp_photo = lg.newImage("/assets/img/sprite_photo.png"),
-    sp_chair = lg.newImage("/assets/img/sprite_chair.png"),
-  }
+		bg_front = lg.newImage("/assets/img/bg_front.png"),
+		sp_desk = lg.newImage("/assets/img/sprite_desk.png"),
+		sp_pnj = lg.newImage("/assets/img/sprite_pnj.png"),
+		sp_satan1 = lg.newImage("/assets/img/sprite_satan_12.png"),
+		sp_satan2 = lg.newImage("/assets/img/sprite_satan_22.png"),
+		sp_ground = lg.newImage("/assets/img/sprite_ground.png"),
+		sp_cont = lg.newImage("/assets/img/sprite_contract.png"),
+		sp_unit_b = lg.newImage("/assets/img/sprite_blue_unit.png"),
+		sp_unit_g = lg.newImage("/assets/img/sprite_green_unit.png"),
+		sp_unit_r = lg.newImage("/assets/img/sprite_red_unit.png"),
+		sp_penta = lg.newImage("/assets/img/sprite_penta.png"),
+		sp_window = lg.newImage("/assets/img/sprite_window.png"),
+		bop = lg.newImage("/assets/img/bop.png"),
+		GO_pos = lg.newImage("/assets/img/game_over_pos.png"),
+		GO_rel = lg.newImage("/assets/img/game_over_rel.png"),
+		GO_ego = lg.newImage("/assets/img/game_over_ego.png"),
+		WIN_pos = lg.newImage("/assets/img/win_pos.png"),
+		WIN_rel = lg.newImage("/assets/img/win_rel.png"),
+		WIN_ego = lg.newImage("/assets/img/win_ego.png"),
+		sp_tick1 = lg.newImage("/assets/img/sprite_tickbox_empty.png"),
+		sp_tick2 = lg.newImage("/assets/img/sprite_tickbox.png"),
+		sp_vial_r = lg.newImage("/assets/img/sprite_vial_r.png"),
+		sp_vial_g = lg.newImage("/assets/img/sprite_vial_g.png"),
+		sp_vial_b = lg.newImage("/assets/img/sprite_vial_b.png"),
+		sp_photo = lg.newImage("/assets/img/sprite_photo.png"),
+		sp_chair = lg.newImage("/assets/img/sprite_chair.png"),
+	}
 
-  symbol ={
-    pos = lg.newImage("/assets/img/sprite_symbol_b.png"),
-    ego = lg.newImage("/assets/img/sprite_symbol_g.png"),
-    rel = lg.newImage("/assets/img/sprite_symbol_r.png"),
-  }
+	symbol ={
+		pos = lg.newImage("/assets/img/sprite_symbol_b.png"),
+		ego = lg.newImage("/assets/img/sprite_symbol_g.png"),
+		rel = lg.newImage("/assets/img/sprite_symbol_r.png"),
+	}
 
 	stamps = {
 		accepted = lg.newImage("assets/img/approved.png"),
 		denied = lg.newImage("assets/img/denied.png"),
 	}
-  
+
 	fonts = {
 		wishFont = lg.newFont("/assets/COPRGTB.TTF", 28),
 		itemFont = lg.newFont("/assets/COPRGTB.TTF", 22),
-    spaceFont = lg.newFont("/assets/COPRGTB.TTF", 20),
+		spaceFont = lg.newFont("/assets/COPRGTB.TTF", 20),
 	}
 
 	con = {

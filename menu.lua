@@ -29,47 +29,47 @@ function gMenu:update(dt)
 end
 
 function gMenu:draw()
-  love.graphics.setColor(1,1,1,1)
+	love.graphics.setColor(1,1,1,1)
 	TLfres.beginRendering(1920, 1080)
-  love.graphics.draw(MenuImg,0,0)
-  love.graphics.draw(NewGame, button.x, button.y)
-  love.graphics.draw(Credits, button2.x, button2.y)
-  love.graphics.draw(Quit, button3.x, button3.y)
+	love.graphics.draw(MenuImg,0,0)
+	love.graphics.draw(NewGame, button.x, button.y)
+	love.graphics.draw(Credits, button2.x, button2.y)
+	love.graphics.draw(Quit, button3.x, button3.y)
 	TLfres.endRendering({0,0,0,0})
 
 end
 
 function gMenu:mousepressed(x, y, click_type)
-  x,y = TLfres.getMousePosition(1920,1080)
-   if button:isclicked(x,y) == true then
-    NewGame = love.graphics.newImage(button.imgN)
-  elseif button2:isclicked(x,y) == true then
-    Credits = love.graphics.newImage(button2.imgC)
-  elseif button3:isclicked(x,y) == true then
-    Quit = love.graphics.newImage(button3.imgQ)
-  end
+	x,y = TLfres.getMousePosition(1920,1080)
+	if button:isclicked(x,y) == true then
+		NewGame = love.graphics.newImage(button.imgN)
+	elseif button2:isclicked(x,y) == true then
+		Credits = love.graphics.newImage(button2.imgC)
+	elseif button3:isclicked(x,y) == true then
+		Quit = love.graphics.newImage(button3.imgQ)
+	end
 end
 
 function gMenu:mousereleased(x, y, click_type)
-  x,y = TLfres.getMousePosition(1920,1080)
- if button:isclicked(x,y) == true then
-    NewGame = love.graphics.newImage(button.img1)
-    if tuto_on == true then
-        Gamestate.switch(gTuto)
-    elseif tuto_on == false then
-        Gamestate.switch(gGame)
-    end
-  elseif button2:isclicked(x,y) == true then
-    Credits = love.graphics.newImage(button2.img1)
-    Gamestate.switch(gCredits)
-  elseif button3:isclicked(x,y) == true then
-    Quit = love.graphics.newImage(button3.img1)
-    love.event.quit()
-  end
+	x,y = TLfres.getMousePosition(1920,1080)
+	if button:isclicked(x,y) == true then
+		NewGame = love.graphics.newImage(button.img1)
+		if tuto_on == true then
+			Gamestate.switch(gTuto)
+		elseif tuto_on == false then
+			Gamestate.switch(gGame)
+		end
+	elseif button2:isclicked(x,y) == true then
+		Credits = love.graphics.newImage(button2.img1)
+		Gamestate.switch(gCredits)
+	elseif button3:isclicked(x,y) == true then
+		Quit = love.graphics.newImage(button3.img1)
+		love.event.quit()
+	end
 end   
-  
+
 function gMenu:keypressed(key, scancode, isrepeat)
-if scancode == 'escape' then
+	if scancode == 'escape' then
 		love.event.quit()
 	end
 end
