@@ -42,6 +42,10 @@ function gMenu:draw()
 	love.graphics.draw(Credits, button2.x, button2.y)
 	love.graphics.draw(Quit, button3.x, button3.y)
 	lg.draw(cigar)
+	love.graphics.setColor(0,1,0,1)
+	lg.ellipse("line", cigarX, cigarY, cigarW, cigarH)
+	love.graphics.setColor(1,1,1,1)
+	--lg.draw(startscreen.hand)
 	TLfres.endRendering({0,0,0,0})
 
 end

@@ -4,7 +4,7 @@ local vfx = {}
 
 function vfx.load()
 
-	fire = lg.newParticleSystem(love.graphics.newImage("/assets/img/fire.png"), 5000)
+	fire = lg.newParticleSystem(love.graphics.newImage("assets/img/fire.png"), 5000)
 	fire:setEmissionRate(2100)
 	fire:setParticleLifetime(0.25)
 	fire:setEmissionArea("ellipse", 110, 80)
@@ -26,23 +26,30 @@ function vfx.load()
 	fire:setPosition(1110, 950)
 	fire:stop()
 
-	cigar = lg.newParticleSystem(love.graphics.newImage("/assets/img/fire.png"))
-	cigar:setEmissionRate(10)
-	cigar:setParticleLifetime(10)
-	cigar:setEmissionArea("ellipse", 10, 10)
+	cigar = lg.newParticleSystem(love.graphics.newImage("assets/vfx/smoke.png"))
+	cigar:setEmissionRate(20)
+	cigar:setParticleLifetime(7)
+	cigarX, cigarY, cigarW, cigarH = 1110,840,30,15
+	cigar:setEmissionArea("ellipse", cigarW, cigarH)
 
 	cigar:setSpeed(100)
 	cigar:setRadialAcceleration(0)
 	cigar:setLinearDamping(0)
 
 	cigar:setDirection(-math.pi/2)
-	cigar:setSpread(0)
+	cigar:setSpread(math.pi/16)
 
-	cigar:setSizes(1.2, 1, 0.1)
+	cigar:setSizes(0, 1)
 	cigar:setSizeVariation(0.2)
-	cigar:setColors(125/255,125/255,125/255,0.5,
-					125/255,125/255,125/255,0.5,
-					255/255,255/255,255/255,0.5)
+	cigar:setColors(200/255,200/255,200/255,0.05,
+					200/255,200/255,200/255,0.05,
+					200/255,200/255,200/255,0.05,
+					200/255,200/255,200/255,0.05,
+					200/255,200/255,200/255,0.05,
+					200/255,200/255,200/255,0.02,
+					255/255,255/255,255/255,0)
+	cigar:setRotation(-math.pi, math.pi)
+	cigar:setSpin(-math.pi/8, math.pi/8)
 
 	cigar:setPosition(1100,840)
 	cigar:stop()

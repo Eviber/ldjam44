@@ -25,6 +25,9 @@ gameover_state = 0
 
 
 function loadassets()
+	startscreen = {
+		hand = lg.newImage("assets/img/hand.png"),
+	}
 	imgs = {
 		bg_back = lg.newImage("/assets/img/bg_back.png"),
 		bg_front = lg.newImage("/assets/img/bg_front.png"),
