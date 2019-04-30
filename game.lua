@@ -25,7 +25,7 @@ function gGame:enter()
     tick_tab = {}
     
     for i = 1, #cHuman.items do
-    tick_tab[i] = Tick:create(150, 340 + i%6 * 80, 45, 45)
+    tick_tab[i] = Tick:create(150, 340 + i%6 * 80, 67, 67)
     end
     
 		Timer.after(0.25, function() spawned = true end)
@@ -174,6 +174,7 @@ function gGame:draw()
         test = love.graphics.newImage(tick_tab[i].img2)
       else
         test = love.graphics.newImage(tick_tab[i].img1)
+
       end
         lg.draw(test, tick_tab[i].x, tick_tab[i].y)
         lg.print((cHuman.items[i].str), tick_tab[i].x + 80, tick_tab[i].y + 30)
@@ -193,7 +194,12 @@ function gGame:mousereleased(x, y, click_type)
   x,y = TLfres.getMousePosition(1920,1080)
   for i = 1, #tick_tab do
     if tick_tab[i]:isclicked(x,y) == true then
-      tick_tab[i].click = true
+      tick_tab[i].click = not tick_tab[i].click 
+    end
+    if tick_tab[i].click == true then
+        test = love.graphics.newImage(tick_tab[i].img2)
+    else
+        test = love.graphics.newImage(tick_tab[i].img1)
     end
   end
 end  
