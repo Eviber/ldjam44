@@ -24,31 +24,31 @@ local items = {
 wishesPool = 
 {
 	{
-        {"I want to be Bill Gates rich.", wish.v1 , "possessions"}, --ex: i want XXX Dollars
-        {"I want to be elected\npresident.", wish.v2, "possessions"},
-        {"I want to win the lottery.", wish.v3, "possessions"},
-        {"I want a private island.", wish.v4, "possessions"},
-        {"I want a huge mansion.", wish.v5, "possessions"},
-        {"I want a pot of gold.", wish.v6, "possessions"},
-        {"I want to get my dream\njob.", wish.v7, "possessions"},
-        {"I want a very big car.", wish.v8, "possessions"},
-        {"I want to be elected\nmayor.", wish.v9, "possessions"},
-        {"I want a shrubbery.", wish.v10, "possessions"},
-        {"Can i haz cheezburger?", wish.v11, "possessions"},
-    },
-    {
-        {"I want someone to die.", wish.v1, "relations"}, --ex: i want XXX to die
-        {"I want to find my\nsoulmate.", wish.v2, "relations"},
-        {"I want to have kids.", wish.v3, "relations"}, --ex: i want to have kids // i want my sister to have kids
-        {"I want to talk with\nsomeone who died.", wish.v4, "relations"},
-        {"I want to cure someone's\ndisease.", wish.v5, "relations"},
-        {"I want to be loved by\neveryone.", wish.v6, "relations"},
-        {"I want us to be together\nagain.", wish.v7, "relations"},
-        {"I want them to accept me\nfor who I am.", wish.v8, "relations"},
-        {"I want them to break up.", wish.v9, "relations"},
-        {"I want my waifu to be real.", wish.v10, "relations"},
-        {"I want a pet rock.", wish.v11, "relations"},
-    },
+		{"I want to be Bill Gates rich.", wish.v1 , "possessions"}, --ex: i want XXX Dollars
+		{"I want to be elected\npresident.", wish.v2, "possessions"},
+		{"I want to win the lottery.", wish.v3, "possessions"},
+		{"I want a private island.", wish.v4, "possessions"},
+		{"I want a huge mansion.", wish.v5, "possessions"},
+		{"I want a pot of gold.", wish.v6, "possessions"},
+		{"I want to get my dream\njob.", wish.v7, "possessions"},
+		{"I want a very big car.", wish.v8, "possessions"},
+		{"I want to be elected\nmayor.", wish.v9, "possessions"},
+		{"I want a shrubbery.", wish.v10, "possessions"},
+		{"Can i haz cheezburger?", wish.v11, "possessions"},
+	},
+	{
+		{"I want someone to die.", wish.v1, "relations"}, --ex: i want XXX to die
+		{"I want to find my\nsoulmate.", wish.v2, "relations"},
+		{"I want to have kids.", wish.v3, "relations"}, --ex: i want to have kids // i want my sister to have kids
+		{"I want to talk with\nsomeone who died.", wish.v4, "relations"},
+		{"I want to cure someone's\ndisease.", wish.v5, "relations"},
+		{"I want to be loved by\neveryone.", wish.v6, "relations"},
+		{"I want us to be together\nagain.", wish.v7, "relations"},
+		{"I want them to accept me\nfor who I am.", wish.v8, "relations"},
+		{"I want them to break up.", wish.v9, "relations"},
+		{"I want my waifu to be real.", wish.v10, "relations"},
+		{"I want a pet rock.", wish.v11, "relations"},
+	},
 	{
 		{"I wanna be the very best\nlike no one ever was.", wish.v1, "ego"},
 		{"I want to be the first\nman on Mars.", wish.v2, "ego"},

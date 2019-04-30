@@ -14,47 +14,47 @@ function gPause:init()
 end
 
 function gPause:enter()
-  gGame:draw()
+	gGame:draw()
 end
 
 function gPause:update(dt)
 end
 
 function gPause:keypressed(key, scancode, isrepeat)
-  if scancode == 'escape' then
-    Gamestate.switch(gGame)
-  end
+	if scancode == 'escape' then
+		Gamestate.switch(gGame)
+	end
 end
 
 function gPause:mousereleased(x, y, click_type)
- x,y = TLfres.getMousePosition(1920,1080)
- if button:isclicked(x,y) == true then
-    Resume = love.graphics.newImage(button.img1)
-    Gamestate.switch(gGame)
-  elseif button2:isclicked(x,y) == true then
-    Quit = love.graphics.newImage(button2.img1)
-    Gamestate.switch(gMenu)
-  end
+	x,y = TLfres.getMousePosition(1920,1080)
+	if button:isclicked(x,y) == true then
+		Resume = love.graphics.newImage(button.img1)
+		Gamestate.switch(gGame)
+	elseif button2:isclicked(x,y) == true then
+		Quit = love.graphics.newImage(button2.img1)
+		Gamestate.switch(gMenu)
+	end
 end   
 
 function gPause:mousepressed(x, y, click_type)
-      x,y = TLfres.getMousePosition(1920,1080)
-   if button:isclicked(x,y) == true then
-    Resume = love.graphics.newImage(button.img2)
-  elseif button2:isclicked(x,y) == true then
-    Quit = love.graphics.newImage(button2.img2)
-  end
+	x,y = TLfres.getMousePosition(1920,1080)
+	if button:isclicked(x,y) == true then
+		Resume = love.graphics.newImage(button.img2)
+	elseif button2:isclicked(x,y) == true then
+		Quit = love.graphics.newImage(button2.img2)
+	end
 end
 
 function gPause:draw()
-  gGame:draw()
-  love.graphics.setColor(1,1,1,1)
-  TLfres.beginRendering(1920, 1080)
-  love.graphics.draw(Vignette, 0, 0)
-  love.graphics.draw(Pause, 0, 0)
-  love.graphics.draw(Resume, button.x, button.y)
-  love.graphics.draw(Quit, button2.x, button2.y)
-  TLfres.endRendering({0,0,0,0})
+	gGame:draw()
+	love.graphics.setColor(1,1,1,1)
+	TLfres.beginRendering(1920, 1080)
+	love.graphics.draw(Vignette, 0, 0)
+	love.graphics.draw(Pause, 0, 0)
+	love.graphics.draw(Resume, button.x, button.y)
+	love.graphics.draw(Quit, button2.x, button2.y)
+	TLfres.endRendering({0,0,0,0})
 end
 
 return gPause

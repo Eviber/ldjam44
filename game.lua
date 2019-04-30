@@ -23,12 +23,12 @@ end
 function gGame:enter()
 	if fromMenu then
 		cHuman = Human:create()
-    tick_tab = {}
-    
-    for i = 1, #cHuman.items do
-      tick_tab[i] = Tick:create(150, 340 + i%6 * 80, 67, 67)
-    end
-    
+		tick_tab = {}
+
+		for i = 1, #cHuman.items do
+			tick_tab[i] = Tick:create(150, 340 + i%6 * 80, 67, 67)
+		end
+
 		Timer.after(0.25, function() spawned = true end)
 		fire:start()
 		fromMenu = false
@@ -60,14 +60,14 @@ function gGame:keyreleased(key, scancode, irepeat)
 			resources["ego"] = resources["ego"] - 20
 		end
 		Timer.after(0.25, function() accepted = false ; denied = false end)
-		
+
 		--checking for victory or defeat
 		check_victory()
 		check_defeat()
-		
+
 	end
-	
-	
+
+
 	if utils:hasValue(scancode, {'1', '2', '3', '4', '5', '6', '7', '8', '9'}) then
 		if cHuman.items[tonumber(scancode)] ~= nil then
 			cHuman.items[tonumber(scancode)].checked = not cHuman.items[tonumber(scancode)].checked
@@ -80,16 +80,16 @@ function gGame:update(dt)
 		rmHuman()
 		cHuman.toRemove = false
 		Timer.after(0.5,
-			function ()
-				cHuman = Human:create()
-    			tick_tab = {}
-    
-    			for i = 1, #cHuman.items do
-    				tick_tab[i] = Tick:create(150, 340 + i%6 * 80, 67, 67)
-    			end
-				Timer.after(0.25, function() spawned = true end)
-				fire:start()
-			end)
+		function ()
+			cHuman = Human:create()
+			tick_tab = {}
+
+			for i = 1, #cHuman.items do
+				tick_tab[i] = Tick:create(150, 340 + i%6 * 80, 67, 67)
+			end
+			Timer.after(0.25, function() spawned = true end)
+			fire:start()
+		end)
 	end
 	fire:update(dt)
 	Timer.update(dt)
@@ -139,7 +139,7 @@ end
 
 function drawcontract()
 	love.graphics.draw(imgs.sp_cont, 0, 0)
-  love.graphics.draw(imgs.sp_photo,0,0)
+	love.graphics.draw(imgs.sp_photo,0,0)
 	drawfioles()
 	drawclip()
 end
@@ -201,7 +201,7 @@ function gGame:draw()
 	drawbg2()
 	drawground()
 	drawpenta()
-  drawchair()
+	drawchair()
 	drawsatan_leg()
 	drawdesk()
 	drawsatan_top()
@@ -218,30 +218,30 @@ function gGame:draw()
 		if cHuman.items[i] ~= nil then
 			lg.setColor(unpack(cHuman.items[i].checked == true and {0,1,0} or {0,0,0}))
 			itemNumber = itemNumber + 1
-      lg.setColor(1,1,1,1)
-      if i > 5 then
-        tick_tab[i].x = 450
-        tick_tab[i].y = (340 + (itemNumber% 5 ) * 80)        
-      end 
-      if tick_tab[i].click == true then
-        test = b2
-      else
-        test = b1
+			lg.setColor(1,1,1,1)
+			if i > 5 then
+				tick_tab[i].x = 450
+				tick_tab[i].y = (340 + (itemNumber% 5 ) * 80)        
+			end 
+			if tick_tab[i].click == true then
+				test = b2
+			else
+				test = b1
 
-    end
-            if cHuman.items[i].cat == "possessions" then
-          lg.draw(symbol.pos,tick_tab[i].x +20,tick_tab[i].y +5)
-        elseif cHuman.items[i].cat == "ego" then
-          lg.draw(symbol.ego,tick_tab[i].x +10,tick_tab[i].y +5)
-        elseif cHuman.items[i].cat == "relations" then
-          lg.draw(symbol.rel,tick_tab[i].x +10,tick_tab[i].y +10)
-        end
-	  if tick_tab[i].click then
-        	lg.draw(test, tick_tab[i].x - 11, tick_tab[i].y - 32)
-		else
-        	lg.draw(test, tick_tab[i].x, tick_tab[i].y)
-		end
-        lg.print((cHuman.items[i].str), tick_tab[i].x + 80, tick_tab[i].y + 10)
+			end
+			if cHuman.items[i].cat == "possessions" then
+				lg.draw(symbol.pos,tick_tab[i].x +20,tick_tab[i].y +5)
+			elseif cHuman.items[i].cat == "ego" then
+				lg.draw(symbol.ego,tick_tab[i].x +10,tick_tab[i].y +5)
+			elseif cHuman.items[i].cat == "relations" then
+				lg.draw(symbol.rel,tick_tab[i].x +10,tick_tab[i].y +10)
+			end
+			if tick_tab[i].click then
+				lg.draw(test, tick_tab[i].x - 11, tick_tab[i].y - 32)
+			else
+				lg.draw(test, tick_tab[i].x, tick_tab[i].y)
+			end
+			lg.print((cHuman.items[i].str), tick_tab[i].x + 80, tick_tab[i].y + 10)
 
 		end
 	end
@@ -250,31 +250,31 @@ function gGame:draw()
 	--lg.print(resources.possessions, W-700, 100)
 	--lg.print(resources.relations, W-500, 100)
 	--lg.print(resources.ego, W-300, 100)
-	
+
 	drawstamp()
-  lg.setColor(0,0,0)
-  lg.setFont(fonts.spaceFont)
-  lg.print("Press Space to make an offer", 270, 810)
+	lg.setColor(0,0,0)
+	lg.setFont(fonts.spaceFont)
+	lg.print("Press Space to make an offer", 270, 810)
 	vfx.draw()
 	TLfres.endRendering()
 end
 
 function gGame:mousereleased(x, y, click_type)
-  x,y = TLfres.getMousePosition(1920,1080)
-  for i = 1, #tick_tab do
-    if tick_tab[i]:isclicked(x,y) == true then
-    --[[
-    if tick_tab[i].click == true then
-        test = love.graphics.newImage(tick_tab[i].img2)
-    else
-        test = love.graphics.newImage(tick_tab[i].img1)
-=======]]
-        tick_tab[i].click = not tick_tab[i].click 
-		if cHuman.items[i] ~= nil then
-			cHuman.items[i].checked = not cHuman.items[i].checked
+	x,y = TLfres.getMousePosition(1920,1080)
+	for i = 1, #tick_tab do
+		if tick_tab[i]:isclicked(x,y) == true then
+			--[[
+			if tick_tab[i].click == true then
+			test = love.graphics.newImage(tick_tab[i].img2)
+			else
+			test = love.graphics.newImage(tick_tab[i].img1)
+			=======]]
+			tick_tab[i].click = not tick_tab[i].click 
+			if cHuman.items[i] ~= nil then
+				cHuman.items[i].checked = not cHuman.items[i].checked
+			end
 		end
-    end
-  end
+	end
 end  
 
 return gGame

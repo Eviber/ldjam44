@@ -20,7 +20,7 @@ function vfx.load()
 	fire:setSizes(1.33, 2.5, 0.1)
 	fire:setSizeVariation(0)
 	fire:setColors(255/255,255/255,156/255,1,
-	               241/255,  0/255, 21/255,1,
+				   241/255,  0/255, 21/255,1,
 				    68/255, 24/255,  0/255,1)
 
 	fire:setPosition(1110, 950)

@@ -20,8 +20,8 @@ end
 function gCredits:update(dt)
 	local x,y = love.mouse.getPosition()
 	if Isin(x,y,560,458) == true or Isin(x,y,619,458) == true or
-	   Isin(x,y,506,504) == true or Isin(x,y,560,504) == true or
-	   Isin(x,y,506,552) == true or Isin(x,y,506,762) == true then
+		Isin(x,y,506,504) == true or Isin(x,y,560,504) == true or
+		Isin(x,y,506,552) == true or Isin(x,y,506,762) == true then
 		love.mouse.setCursor(za_hand)
 	else
 		love.mouse.setCursor(cursor)
