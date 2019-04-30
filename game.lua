@@ -25,7 +25,7 @@ function gGame:enter()
     tick_tab = {}
     
     for i = 1, #cHuman.items do
-    tick_tab[i] = Tick:create(150, 340 + i%6 * 80, 45, 45)
+    	tick_tab[i] = Tick:create(150, 340 + i%6 * 80, 45, 45)
     end
     
 		Timer.after(0.25, function() spawned = true end)
@@ -72,6 +72,11 @@ function gGame:update(dt)
 		Timer.after(0.5,
 			function ()
 				cHuman = Human:create()
+    			tick_tab = {}
+    
+    			for i = 1, #cHuman.items do
+    				tick_tab[i] = Tick:create(150, 340 + i%6 * 80, 45, 45)
+    			end
 				Timer.after(0.25, function() spawned = true end)
 				fire:start()
 			end)
@@ -161,7 +166,7 @@ function gGame:draw()
   lg.setColor(1,1,1,1)
 	lg.print(cHuman.wish[1], 150, 150)
 	local itemNumber = 0
-	for i = 0, #cHuman.items do
+	for i = 1, #cHuman.items do
 		if cHuman.items[i] ~= nil then
 			lg.setColor(unpack(cHuman.items[i].checked == true and {0,1,0} or {0,0,0}))
 			itemNumber = itemNumber + 1
@@ -194,6 +199,9 @@ function gGame:mousereleased(x, y, click_type)
   for i = 1, #tick_tab do
     if tick_tab[i]:isclicked(x,y) == true then
       tick_tab[i].click = true
+		if cHuman.items[i] ~= nil then
+			cHuman.items[i].checked = not cHuman.items[i].checked
+		end
     end
   end
 end  
