@@ -60,7 +60,7 @@ function gGame:keyreleased(key, scancode, irepeat)
 			resources["possessions"] = resources["possessions"] - 20
 			resources["ego"] = resources["ego"] - 20
 		end
-		Timer.after(0.25, function() accepted = false ; denied = false end)
+		Timer.after(0.5, function() accepted = false ; denied = false end)
 
 		--checking for victory or defeat
 		check_victory()
