@@ -18,6 +18,7 @@ end
 function gGame:init()
 	b1 = love.graphics.newImage("/assets/img/sprite_tickbox_empty.png")
 	b2 = love.graphics.newImage("/assets/img/sprite_tickbox.png")
+	pcig:start()
 end
 
 function gGame:enter()
@@ -92,6 +93,7 @@ function gGame:update(dt)
 		end)
 	end
 	fire:update(dt)
+	pcig:update(dt)
 	Timer.update(dt)
 end
 
@@ -204,6 +206,9 @@ function gGame:draw()
 	drawchair()
 	drawsatan_leg()
 	drawdesk()
+	lg.setColor(0,0,0)
+	lg.setColor(1,1,1)
+	lg.draw(pcig)
 	drawsatan_top()
 	drawwindow()
 	drawcontract()

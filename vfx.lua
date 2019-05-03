@@ -54,6 +54,19 @@ function vfx.load()
 	cigar:setPosition(1100,840)
 	cigar:stop()
 
+	pcig = cigar:clone()
+	pcig:setSpeed(50)
+	pcig:setPosition(1420,580)
+	pcig:setSizes(0, 0.2)
+	pcig:setEmissionArea("none", 0, 0)
+	pcig:setColors(200/255,200/255,200/255,0.1,
+					200/255,200/255,200/255,0.1,
+					200/255,200/255,200/255,0.1,
+					200/255,200/255,200/255,0.1,
+					200/255,200/255,200/255,0.1,
+					200/255,200/255,200/255,0.05,
+					255/255,255/255,255/255,0)
+
 	--[[
 	void = lg.newParticleSystem(love.graphics.newImage('pixel.png'))
 	void:setParticleLifetime(2)
