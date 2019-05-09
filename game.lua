@@ -177,7 +177,7 @@ local function drawstamp()
 end
 
 function gGame:draw()
-	TLfres.beginRendering(1920, 1080)
+	TLfres.beginRendering(W,H)
 	drawbg()
 	drawclient()
 	drawcontract()

@@ -33,7 +33,7 @@ function gMenu:update(dt)
 end
 
 function gMenu:draw()
-	TLfres.beginRendering(1920, 1080)
+	TLfres.beginRendering(W,H)
 	love.graphics.setColor(1,1,1,1)
 	love.graphics.draw(MenuImg,0,0)
 	btnPlay:draw()
