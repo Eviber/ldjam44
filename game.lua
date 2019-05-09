@@ -97,14 +97,15 @@ local function drawbg()
 	love.graphics.draw(imgs.sp_unit_r, 0, 348 - (348 * resources.relations / max_resources))
 	love.graphics.draw(imgs.sp_unit_g, 0, 348 - (348 * resources.ego / max_resources))
 	love.graphics.draw(imgs.bg_front, 0, 0)
-	love.graphics.draw(imgs.sp_ground,0 ,0)
-	love.graphics.draw(imgs.sp_penta,0,0)
-	love.graphics.draw(imgs.sp_chair, 0, 0)
-	love.graphics.draw(imgs.sp_satan2, 0, 0)
-	love.graphics.draw(imgs.sp_desk, 0, 0)
+	love.graphics.draw(imgs.sp_ground,0 ,782)
+	love.graphics.draw(imgs.sp_penta,991,882)
+	love.graphics.draw(imgs.sp_chair, 1567, 86)
+	love.graphics.draw(imgs.sp_satan2, 1406, 675)
+	love.graphics.draw(imgs.sp_desk, 1204, 611)
+	love.graphics.draw(imgs.deskvials, 1298, 520)
 	lg.draw(pcig)
-	love.graphics.draw(imgs.sp_satan1, 0, 0)
-	love.graphics.draw(imgs.sp_window, 0, 0)
+	love.graphics.draw(imgs.sp_satan1, 1418, 132)
+	love.graphics.draw(imgs.sp_window, 297, 121)
 end
 
 local function drawfioles()
@@ -134,8 +135,8 @@ local function drawclip()
 end
 
 local function drawcontract()
-	love.graphics.draw(imgs.sp_cont, 0, 0)
-	love.graphics.draw(imgs.sp_photo,0,0)
+	love.graphics.draw(imgs.sp_cont, 66, 76)
+	--love.graphics.draw(imgs.sp_photo,0,0)
 	drawfioles()
 	drawclip()
 
@@ -157,7 +158,7 @@ end
 
 local function drawclient()
 	if spawned then
-		love.graphics.draw(imgs.sp_pnj,0,0)
+		love.graphics.draw(imgs.sp_pnj,993,532)
 	elseif pop then
 		love.graphics.draw(imgs.bop,900,620)
 	end
@@ -166,9 +167,9 @@ end
 local function drawstamp()
 	lg.setColor(1,1,1)
 	if accepted then
-		lg.draw(stamps.accepted)
+		lg.draw(stamps.accepted, 118, 106)
 	elseif denied then
-		lg.draw(stamps.denied)
+		lg.draw(stamps.denied, 118, 106)
 	end
 end
 

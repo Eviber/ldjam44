@@ -1,32 +1,36 @@
 local gTuto = {}
 
 local btnSkip
-local var_s = 1
+local var_s = 0
+local slide
 
-function gTuto:init()
-	btnSkip = Button:create(1600, 960, 97, 90, btn.noclick, btn.click, function() tuto_on = false ; Gamestate.switch(gGame) end)
+local function leave()
+	slide = nil
+	tuto_skip = nil
+	tuto_on = false
+	Gamestate.switch(gGame)
 end
 
-function gTuto:enter()
-end
-
-function gTuto:update(dt)
-end
-
-function sliders()
+local function nextSlide()
+	var_s = var_s + 1
 	if var_s < 14 then
-		love.graphics.draw(slide[var_s],0,0)
+		slide = love.graphics.newImage("assets/img/slide" .. tostring(var_s) .. ".jpg")
 	else
-		tuto_on = false
-		Gamestate.switch(gGame)
+		leave()
 	end
 end
 
+function gTuto:init()
+	tuto_skip = love.graphics.newImage("assets/img/skip.png")
+	btnSkip = Button:create(1600, 960, 97, 90, btn.noclick, btn.click, leave)
+	nextSlide()
+end
+
 function gTuto:draw()
+	TLfres.beginRendering(W, H)
 	love.graphics.setColor(1,1,1,1)
-	TLfres.beginRendering(1920, 1080)
-	sliders()
-	love.graphics.draw(tuto_skip,0,0)
+	love.graphics.draw(slide,0,0)
+	love.graphics.draw(tuto_skip,1712,998)
 	btnSkip:draw()
 	TLfres.endRendering({0,0,0,0})
 end
@@ -38,13 +42,13 @@ end
 function gTuto:mousereleased(x, y, click_type)
 	btnSkip:onrelease()
 	if not btnSkip:ishover() then
-		var_s = var_s + 1
+		nextSlide()
 	end
 end   
 
 function gTuto:keypressed(key, scancode, isrepeat)
 	if scancode == 'space' then
-		var_s = var_s + 1
+		nextSlide()
 	end
 end
 
