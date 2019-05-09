@@ -92,7 +92,7 @@ end
 
 local function drawbg()
 	lg.setColor(1,1,1)
-	love.graphics.draw(imgs.bg_back, 0, 0)
+	love.graphics.draw(imgs.bg_back, 826, 194)
 	love.graphics.draw(imgs.sp_unit_b, 0, 348 - (348 * resources.possessions / max_resources))
 	love.graphics.draw(imgs.sp_unit_r, 0, 348 - (348 * resources.relations / max_resources))
 	love.graphics.draw(imgs.sp_unit_g, 0, 348 - (348 * resources.ego / max_resources))

@@ -45,7 +45,6 @@ function loadassets()
 		sp_penta  = lg.newImage("assets/img/sprite_penta.png"),
 		sp_window = lg.newImage("assets/img/sprite_window.png"),
 		bop       = lg.newImage("assets/img/bop.png"),
-		sp_photo  = lg.newImage("assets/img/sprite_photo.png"),
 		sp_chair  = lg.newImage("assets/img/sprite_chair.png"),
 	}
 	print(love.timer.getTime() - startTime, "after imgs[]")
