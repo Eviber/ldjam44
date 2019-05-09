@@ -90,7 +90,7 @@ function gGame:update(dt)
 	Timer.update(dt)
 end
 
-function drawbg()
+local function drawbg()
 	lg.setColor(1,1,1)
 	love.graphics.draw(imgs.bg_back, 0, 0)
 	love.graphics.draw(imgs.sp_unit_b, 0, 348 - (348 * resources.possessions / max_resources))
@@ -107,7 +107,7 @@ function drawbg()
 	love.graphics.draw(imgs.sp_window, 0, 0)
 end
 
-function drawfioles()
+local function drawfioles()
 	local n = 0
 	if cHuman.wish[2] == 500 then -- oof c'est degeu
 		n = 4
@@ -123,7 +123,7 @@ function drawfioles()
 	end
 end
 
-function drawclip()
+local function drawclip()
 	if cHuman.ratio == 1.25 then
 		lg.draw(clip.r, 124, 33)
 	elseif cHuman.ratio == 1.5 then
@@ -133,7 +133,7 @@ function drawclip()
 	end
 end
 
-function drawcontract()
+local function drawcontract()
 	love.graphics.draw(imgs.sp_cont, 0, 0)
 	love.graphics.draw(imgs.sp_photo,0,0)
 	drawfioles()
@@ -155,7 +155,7 @@ function drawcontract()
 	lg.print("Press Space to make an offer", 270, 810)
 end
 
-function drawclient()
+local function drawclient()
 	if spawned then
 		love.graphics.draw(imgs.sp_pnj,0,0)
 	elseif pop then
