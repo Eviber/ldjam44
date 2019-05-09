@@ -25,9 +25,6 @@ gameover_state = 0
 
 
 function loadassets()
-	--startscreen = {
-		--hand = lg.newImage("assets/img/hand.png"), -- 624, 309
-	--}
 	imgs = {
 		bg_back   = lg.newImage("assets/img/bg_back.png"),
 		background= lg.newImage("assets/img/background.png"),
