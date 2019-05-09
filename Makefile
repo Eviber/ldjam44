@@ -1,4 +1,4 @@
-NAME=WhatDoYouWant
+NAME=WhatDoYouWant-POST_JAM
 
 RESOURCES= assets/ shack/ hump/ icon_insta.png icon_twitter.png
 
