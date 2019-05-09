@@ -58,6 +58,26 @@ function loadassets()
 		sp_chair = lg.newImage("assets/img/sprite_chair.png"),
 	}
 
+	CreditsImg = love.graphics.newImage("assets/img/Credits.jpg")
+	MenuImg = love.graphics.newImage("assets/img/bg_menu.png")
+
+	slide =
+	{
+		love.graphics.newImage("assets/img/slide1.jpg"),
+		love.graphics.newImage("assets/img/slide2.jpg"),
+		love.graphics.newImage("assets/img/slide3.jpg"),
+		love.graphics.newImage("assets/img/slide4.jpg"),
+		love.graphics.newImage("assets/img/slide5.jpg"),
+		love.graphics.newImage("assets/img/slide6.jpg"),
+		love.graphics.newImage("assets/img/slide7.jpg"),
+		love.graphics.newImage("assets/img/slide8.jpg"),
+		love.graphics.newImage("assets/img/slide9.jpg"),
+		love.graphics.newImage("assets/img/slide10.jpg"),
+		love.graphics.newImage("assets/img/slide11.jpg"),
+		love.graphics.newImage("assets/img/slide12.jpg"),
+		love.graphics.newImage("assets/img/slide13.jpg"),
+	}
+	tuto_skip = love.graphics.newImage("assets/img/skip.png")
 	symbol ={
 		pos = lg.newImage("/assets/img/sprite_symbol_b.png"),
 		ego = lg.newImage("/assets/img/sprite_symbol_g.png"),
@@ -75,7 +95,9 @@ function loadassets()
 		spaceFont = lg.newFont("/assets/COPRGTB.TTF", 20),
 	}
 
-	con = {
+	btn = {
+		noclick = lg.newImage("assets/img/Bouton.png"),
+		click = lg.newImage("assets/img/Bouton2.png"),
 		tick  = lg.newImage("assets/img/sprite_tickbox_empty.png"),
 	}
 	fiole = {

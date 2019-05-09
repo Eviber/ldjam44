@@ -1,16 +1,15 @@
-local img = "/assets/img/sprite_pause.png"
-local vin = "/assets/img/Vignette.png"
-local button = Button:create(600, 400, 97, 90)
-local button2 = Button:create(600, 600, 97, 90)
-local Resume = love.graphics.newImage(button.img1)
-local Quit = love.graphics.newImage(button2.img1)
-local Pause = love.graphics.newImage(img)
-local Vignette = love.graphics.newImage(vin)
-
-
 local gPause = {}
 
+local btnResume
+local btnQuit
+local Pause
+local Vignette
+
 function gPause:init()
+	btnResume = Button:create(600, 400, 97, 90, btn.noclick, btn.click, function() Gamestate.switch(gGame) end)
+	btnQuit = Button:create(600, 600, 97, 90, btn.noclick, btn.click, function() Gamestate.switch(gMenu) end)
+	Pause = lg.newImage("assets/img/sprite_pause.png")
+	Vignette = lg.newImage("assets/img/Vignette.png")
 end
 
 function gPause:enter()
@@ -27,33 +26,23 @@ function gPause:keypressed(key, scancode, isrepeat)
 end
 
 function gPause:mousereleased(x, y, click_type)
-	x,y = TLfres.getMousePosition(1920,1080)
-	if button:isclicked(x,y) == true then
-		Resume = love.graphics.newImage(button.img1)
-		Gamestate.switch(gGame)
-	elseif button2:isclicked(x,y) == true then
-		Quit = love.graphics.newImage(button2.img1)
-		Gamestate.switch(gMenu)
-	end
+	btnResume:onrelease()
+	btnQuit:onrelease()
 end   
 
 function gPause:mousepressed(x, y, click_type)
-	x,y = TLfres.getMousePosition(1920,1080)
-	if button:isclicked(x,y) == true then
-		Resume = love.graphics.newImage(button.img2)
-	elseif button2:isclicked(x,y) == true then
-		Quit = love.graphics.newImage(button2.img2)
-	end
+	btnResume:onpress()
+	btnQuit:onpress()
 end
 
 function gPause:draw()
 	gGame:draw()
-	love.graphics.setColor(1,1,1,1)
-	TLfres.beginRendering(1920, 1080)
-	love.graphics.draw(Vignette, 0, 0)
-	love.graphics.draw(Pause, 0, 0)
-	love.graphics.draw(Resume, button.x, button.y)
-	love.graphics.draw(Quit, button2.x, button2.y)
+	TLfres.beginRendering(W,H)
+	lg.setColor(1,1,1,1)
+	lg.draw(Vignette, 0, 0)
+	lg.draw(Pause, 0, 0)
+	btnResume:draw()
+	btnQuit:draw()
 	TLfres.endRendering({0,0,0,0})
 end
 

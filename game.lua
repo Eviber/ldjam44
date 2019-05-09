@@ -16,8 +16,6 @@ local function rmHuman()
 end
 
 function gGame:init()
-	b1 = love.graphics.newImage("/assets/img/sprite_tickbox_empty.png")
-	b2 = love.graphics.newImage("/assets/img/sprite_tickbox.png")
 	pcig:start()
 end
 
@@ -27,7 +25,7 @@ function gGame:enter()
 		tick_tab = {}
 
 		for i = 1, #cHuman.items do
-			tick_tab[i] = Tick:create(150, 340 + i%6 * 80, 67, 67)
+			tick_tab[i] = Button:create(150, 340 + i%6 * 80, 67, 67)
 		end
 
 		Timer.after(0.25, function() spawned = true end)
@@ -86,7 +84,7 @@ function gGame:update(dt)
 			tick_tab = {}
 
 			for i = 1, #cHuman.items do
-				tick_tab[i] = Tick:create(150, 340 + i%6 * 80, 67, 67)
+				tick_tab[i] = Button:create(150, 340 + i%6 * 80, 67, 67)
 			end
 			Timer.after(0.25, function() spawned = true end)
 			fire:start()
@@ -225,14 +223,13 @@ function gGame:draw()
 			itemNumber = itemNumber + 1
 			lg.setColor(1,1,1,1)
 			if i > 5 then
-				tick_tab[i].x = 450
-				tick_tab[i].y = (340 + (itemNumber% 5 ) * 80)        
+				tick_tab[i].x = 439
+				tick_tab[i].y = (308 + (itemNumber % 5) * 80)        
 			end 
 			if tick_tab[i].click == true then
-				test = b2
+				test = imgs.sp_tick2 
 			else
-				test = b1
-
+				test = imgs.sp_tick1 
 			end
 			if cHuman.items[i].cat == "possessions" then
 				lg.draw(symbol.pos,tick_tab[i].x +20,tick_tab[i].y +5)
@@ -241,11 +238,7 @@ function gGame:draw()
 			elseif cHuman.items[i].cat == "relations" then
 				lg.draw(symbol.rel,tick_tab[i].x +10,tick_tab[i].y +10)
 			end
-			if tick_tab[i].click then
-				lg.draw(test, tick_tab[i].x - 11, tick_tab[i].y - 32)
-			else
-				lg.draw(test, tick_tab[i].x, tick_tab[i].y)
-			end
+			lg.draw(test, tick_tab[i].x, tick_tab[i].y)
 			lg.print((cHuman.items[i].str), tick_tab[i].x + 80, tick_tab[i].y + 10)
 
 		end
@@ -265,9 +258,8 @@ function gGame:draw()
 end
 
 function gGame:mousereleased(x, y, click_type)
-	x,y = TLfres.getMousePosition(1920,1080)
 	for i = 1, #tick_tab do
-		if tick_tab[i]:isclicked(x,y) == true then
+		if tick_tab[i]:ishover() == true then
 			--[[
 			if tick_tab[i].click == true then
 			test = love.graphics.newImage(tick_tab[i].img2)
