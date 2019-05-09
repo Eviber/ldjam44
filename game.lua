@@ -8,26 +8,24 @@ local game_end = require "game_end"
 
 require "pools"
 
-local function rmHuman()
-	sfx.bop:play()
-	spawned = false
-	pop = true
-	Timer.after(0.1, function() pop = false end)
-end
-
 function gGame:init()
 	pcig:start()
+	tick_tab = {}
+
+	for i = 1, 10 do
+		local x = i > 5 and 450 or 150
+		local y = 380 + (i-1)%5 * 80
+		tick_tab[i] = Button:create(x, y, 67, 67, btn.untick, btn.tick, false, true, 10, 32)
+	end
 end
 
 function gGame:enter()
 	if fromMenu then
 		cHuman = Human:create()
-		tick_tab = {}
 
 		for i = 1, #cHuman.items do
-			tick_tab[i] = Button:create(150, 340 + i%6 * 80, 67, 67)
+			tick_tab[i].clicked = false
 		end
-
 		Timer.after(0.25, function() spawned = true end)
 		fire:start()
 		fromMenu = false
@@ -43,35 +41,33 @@ function gGame:keypressed(key, scancode, isrepeat)
 	end
 end
 
-function gGame:keyreleased(key, scancode, irepeat)
-	--print(scancode)
+local function sealcontract()
+	cHuman.toRemove = true
+	if lorraine.grantWish() then
+		accepted = true
+	else
+		denied = true
+		resources["relations"] = resources["relations"] - 20
+		resources["possessions"] = resources["possessions"] - 20
+		resources["ego"] = resources["ego"] - 20
+	end
+	Timer.after(0.5, function() accepted = false ; denied = false end)
+
+	check_victory()
+	check_defeat()
+end
+
+function gGame:keyreleased(key, scancode, isrepeat)
 	if scancode == 'space' then
-		--resolving contract outcome
-		cHuman.toRemove = true
-		if lorraine.grantWish() then
-			accepted = true
-			--animation tampon Accepted
-		else
-			denied = true
-			--animation tampon X
-			resources["relations"] = resources["relations"] - 20
-			resources["possessions"] = resources["possessions"] - 20
-			resources["ego"] = resources["ego"] - 20
-		end
-		Timer.after(0.5, function() accepted = false ; denied = false end)
-
-		--checking for victory or defeat
-		check_victory()
-		check_defeat()
-
+		sealcontract()
 	end
+end
 
-
-	if utils:hasValue(scancode, {'1', '2', '3', '4', '5', '6', '7', '8', '9'}) then
-		if cHuman.items[tonumber(scancode)] ~= nil then
-			cHuman.items[tonumber(scancode)].checked = not cHuman.items[tonumber(scancode)].checked
-		end
-	end
+local function rmHuman()
+	sfx.bop:play()
+	spawned = false
+	pop = true
+	Timer.after(0.1, function() pop = false end)
 end
 
 function gGame:update(dt)
@@ -81,10 +77,9 @@ function gGame:update(dt)
 		Timer.after(0.5,
 		function ()
 			cHuman = Human:create()
-			tick_tab = {}
 
 			for i = 1, #cHuman.items do
-				tick_tab[i] = Button:create(150, 340 + i%6 * 80, 67, 67)
+				tick_tab[i].clicked = false
 			end
 			Timer.after(0.25, function() spawned = true end)
 			fire:start()
@@ -95,20 +90,21 @@ function gGame:update(dt)
 	Timer.update(dt)
 end
 
-function drawground()
-	love.graphics.draw(imgs.sp_ground,0 ,0)
-end
-
-function drawpenta()
-	love.graphics.draw(imgs.sp_penta,0,0)
-end
-
 function drawbg()
+	lg.setColor(1,1,1)
 	love.graphics.draw(imgs.bg_back, 0, 0)
-end
-
-function drawbg2()
+	love.graphics.draw(imgs.sp_unit_b, 0, 348 - (348 * resources.possessions / max_resources))
+	love.graphics.draw(imgs.sp_unit_r, 0, 348 - (348 * resources.relations / max_resources))
+	love.graphics.draw(imgs.sp_unit_g, 0, 348 - (348 * resources.ego / max_resources))
 	love.graphics.draw(imgs.bg_front, 0, 0)
+	love.graphics.draw(imgs.sp_ground,0 ,0)
+	love.graphics.draw(imgs.sp_penta,0,0)
+	love.graphics.draw(imgs.sp_chair, 0, 0)
+	love.graphics.draw(imgs.sp_satan2, 0, 0)
+	love.graphics.draw(imgs.sp_desk, 0, 0)
+	lg.draw(pcig)
+	love.graphics.draw(imgs.sp_satan1, 0, 0)
+	love.graphics.draw(imgs.sp_window, 0, 0)
 end
 
 function drawfioles()
@@ -142,30 +138,21 @@ function drawcontract()
 	love.graphics.draw(imgs.sp_photo,0,0)
 	drawfioles()
 	drawclip()
-end
 
-function drawsatan_leg()
-	love.graphics.draw(imgs.sp_satan2, 0, 0)
-end
+	lg.setFont(fonts.wishFont)
+	lg.setColor(0, 0, 0)
+	lg.print(cHuman.wish[1], 363, 105)
+	lg.setFont(fonts.itemFont)
+	lg.setColor(1,1,1)
+	for i = 1, #cHuman.items do
+		lg.draw(symbol[cHuman.items[i].cat],tick_tab[i].x + 17,tick_tab[i].y + 40)
+		lg.print(cHuman.items[i].str, tick_tab[i].x + 91, tick_tab[i].y + 42)
+		tick_tab[i]:draw()
+	end
 
-function drawsatan_top()
-	love.graphics.draw(imgs.sp_satan1, 0, 0)
-end
-
-function drawdesk()
-	love.graphics.draw(imgs.sp_desk, 0, 0)
-end
-
-function drawblue()
-	love.graphics.draw(imgs.sp_unit_b, 0, 348 - (348 * resources.possessions / max_resources))
-end
-
-function drawgreen()
-	love.graphics.draw(imgs.sp_unit_g, 0, 348 - (348 * resources.ego / max_resources))
-end
-
-function drawred()
-	love.graphics.draw(imgs.sp_unit_r, 0, 348 - (348 * resources.relations / max_resources))
+	lg.setColor(0,0,0)
+	lg.setFont(fonts.spaceFont)
+	lg.print("Press Space to make an offer", 270, 810)
 end
 
 function drawclient()
@@ -176,15 +163,8 @@ function drawclient()
 	end
 end
 
-function drawwindow()
-	love.graphics.draw(imgs.sp_window, 0, 0)
-end
-
-function drawchair()
-	love.graphics.draw(imgs.sp_chair, 0, 0)
-end
-
 local function drawstamp()
+	lg.setColor(1,1,1)
 	if accepted then
 		lg.draw(stamps.accepted)
 	elseif denied then
@@ -195,78 +175,17 @@ end
 function gGame:draw()
 	TLfres.beginRendering(1920, 1080)
 	drawbg()
-	drawblue()
-	drawred()
-	drawgreen()
-	drawbg2()
-	drawground()
-	drawpenta()
-	drawchair()
-	drawsatan_leg()
-	drawdesk()
-	lg.setColor(0,0,0)
-	lg.setColor(1,1,1)
-	lg.draw(pcig)
-	drawsatan_top()
-	drawwindow()
-	drawcontract()
 	drawclient()
-	--lg.print(cHuman.wish[1], 150, 150)
-	lg.setFont(fonts.wishFont)
-	lg.setColor(0, 0, 0)
-	lg.print(cHuman.wish[1], 363, 105)
-	local itemNumber = 0
-	lg.setFont(fonts.itemFont)
-	for i = 1, #cHuman.items do
-		if cHuman.items[i] ~= nil then
-			lg.setColor(unpack(cHuman.items[i].checked == true and {0,1,0} or {0,0,0}))
-			itemNumber = itemNumber + 1
-			lg.setColor(1,1,1,1)
-			if i > 5 then
-				tick_tab[i].x = 439
-				tick_tab[i].y = (308 + (itemNumber % 5) * 80)        
-			end 
-			if tick_tab[i].click == true then
-				test = imgs.sp_tick2 
-			else
-				test = imgs.sp_tick1 
-			end
-			if cHuman.items[i].cat == "possessions" then
-				lg.draw(symbol.pos,tick_tab[i].x +20,tick_tab[i].y +5)
-			elseif cHuman.items[i].cat == "ego" then
-				lg.draw(symbol.ego,tick_tab[i].x +10,tick_tab[i].y +5)
-			elseif cHuman.items[i].cat == "relations" then
-				lg.draw(symbol.rel,tick_tab[i].x +10,tick_tab[i].y +10)
-			end
-			lg.draw(test, tick_tab[i].x, tick_tab[i].y)
-			lg.print((cHuman.items[i].str), tick_tab[i].x + 80, tick_tab[i].y + 10)
-
-		end
-	end
-
-	lg.setColor(1,1,1)
-	--lg.print(resources.possessions, W-700, 100)
-	--lg.print(resources.relations, W-500, 100)
-	--lg.print(resources.ego, W-300, 100)
-
+	drawcontract()
 	drawstamp()
-	lg.setColor(0,0,0)
-	lg.setFont(fonts.spaceFont)
-	lg.print("Press Space to make an offer", 270, 810)
 	vfx.draw()
 	TLfres.endRendering()
 end
 
-function gGame:mousereleased(x, y, click_type)
+function gGame:mousepressed(x, y, click_type)
 	for i = 1, #tick_tab do
+		tick_tab[i]:onpress()
 		if tick_tab[i]:ishover() == true then
-			--[[
-			if tick_tab[i].click == true then
-			test = love.graphics.newImage(tick_tab[i].img2)
-			else
-			test = love.graphics.newImage(tick_tab[i].img1)
-			=======]]
-			tick_tab[i].click = not tick_tab[i].click 
 			if cHuman.items[i] ~= nil then
 				cHuman.items[i].checked = not cHuman.items[i].checked
 			end

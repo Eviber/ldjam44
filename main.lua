@@ -49,8 +49,6 @@ function loadassets()
 		WIN_pos = lg.newImage("assets/img/win_pos.png"),
 		WIN_rel = lg.newImage("assets/img/win_rel.png"),
 		WIN_ego = lg.newImage("assets/img/win_ego.png"),
-		sp_tick1 = lg.newImage("assets/img/sprite_tickbox_empty.png"),
-		sp_tick2 = lg.newImage("assets/img/sprite_tickbox.png"),
 		sp_vial_r = lg.newImage("assets/img/sprite_vial_r.png"),
 		sp_vial_g = lg.newImage("assets/img/sprite_vial_g.png"),
 		sp_vial_b = lg.newImage("assets/img/sprite_vial_b.png"),
@@ -78,10 +76,10 @@ function loadassets()
 		love.graphics.newImage("assets/img/slide13.jpg"),
 	}
 	tuto_skip = love.graphics.newImage("assets/img/skip.png")
-	symbol ={
-		pos = lg.newImage("/assets/img/sprite_symbol_b.png"),
-		ego = lg.newImage("/assets/img/sprite_symbol_g.png"),
-		rel = lg.newImage("/assets/img/sprite_symbol_r.png"),
+	symbol = {
+		possessions = lg.newImage("assets/img/sprite_symbol_b.png"),
+		ego = lg.newImage("assets/img/sprite_symbol_g.png"),
+		relations = lg.newImage("assets/img/sprite_symbol_r.png"),
 	}
 
 	stamps = {
@@ -90,15 +88,16 @@ function loadassets()
 	}
 
 	fonts = {
-		wishFont = lg.newFont("/assets/COPRGTB.TTF", 28),
-		itemFont = lg.newFont("/assets/COPRGTB.TTF", 22),
-		spaceFont = lg.newFont("/assets/COPRGTB.TTF", 20),
+		wishFont = lg.newFont("assets/COPRGTB.TTF", 28),
+		itemFont = lg.newFont("assets/COPRGTB.TTF", 22),
+		spaceFont = lg.newFont("assets/COPRGTB.TTF", 20),
 	}
 
 	btn = {
 		noclick = lg.newImage("assets/img/Bouton.png"),
 		click = lg.newImage("assets/img/Bouton2.png"),
-		tick  = lg.newImage("assets/img/sprite_tickbox_empty.png"),
+		untick  = lg.newImage("assets/img/sprite_tickbox_empty.png"),
+		tick = lg.newImage("assets/img/sprite_tickbox.png"),
 	}
 	fiole = {
 		possessions = lg.newImage("assets/img/sprite_vial_b.png"),
@@ -106,9 +105,9 @@ function loadassets()
 		ego         = lg.newImage("assets/img/sprite_vial_g.png"),
 	}
 	clip = {
-		g = lg.newImage("/assets/img/sprite_tromb_g.png"),
-		y = lg.newImage("/assets/img/sprite_tromb_y.png"),
-		r = lg.newImage("/assets/img/sprite_tromb_r.png"),
+		g = lg.newImage("assets/img/sprite_tromb_g.png"),
+		y = lg.newImage("assets/img/sprite_tromb_y.png"),
+		r = lg.newImage("assets/img/sprite_tromb_r.png"),
 	}
 
 	cursor = love.mouse.newCursor("assets/img/cursor.png", 3, 2)

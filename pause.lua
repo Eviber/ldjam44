@@ -13,7 +13,6 @@ function gPause:init()
 end
 
 function gPause:enter()
-	gGame:draw()
 end
 
 function gPause:update(dt)
