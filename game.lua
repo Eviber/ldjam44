@@ -96,6 +96,7 @@ local function drawbg()
 	love.graphics.draw(imgs.sp_unit_b, 0, 348 - (348 * resources.possessions / max_resources))
 	love.graphics.draw(imgs.sp_unit_r, 0, 348 - (348 * resources.relations / max_resources))
 	love.graphics.draw(imgs.sp_unit_g, 0, 348 - (348 * resources.ego / max_resources))
+	--[[
 	love.graphics.draw(imgs.bg_front, 0, 0)
 	love.graphics.draw(imgs.sp_ground,0 ,782)
 	love.graphics.draw(imgs.sp_penta,991,882)
@@ -103,9 +104,11 @@ local function drawbg()
 	love.graphics.draw(imgs.sp_satan2, 1406, 675)
 	love.graphics.draw(imgs.sp_desk, 1204, 611)
 	love.graphics.draw(imgs.deskvials, 1298, 520)
-	lg.draw(pcig)
-	love.graphics.draw(imgs.sp_satan1, 1418, 132)
 	love.graphics.draw(imgs.sp_window, 297, 121)
+	love.graphics.draw(imgs.sp_satan1, 1418, 132)
+	]]
+	lg.draw(imgs.background)
+	lg.draw(pcig)
 end
 
 local function drawfioles()
