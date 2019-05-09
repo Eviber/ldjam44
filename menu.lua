@@ -22,6 +22,7 @@ function gMenu:enter()
 	Timer.clear()
 	fire:stop()
 	cigar:start()
+	--print(love.timer.getTime() - startTime) -- to get launch time
 end
 
 function gMenu:leave()
