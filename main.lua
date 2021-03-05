@@ -48,7 +48,11 @@ function loadassets()
 	}
 
 	CreditsImg = love.graphics.newImage("assets/img/Credits.jpg")
-	MenuImg = love.graphics.newImage("assets/img/bg_menu.png")
+	MenuImg = {}
+	for i = 1, 6 do
+		MenuImg[i] = love.graphics.newImage(string.format("assets/img/bg_menu/%d.png", i))
+	end
+	MenuImg.blink = lg.newImage("assets/img/bg_menu/blink.png")
 
 	symbol = {
 		possessions = lg.newImage("assets/img/sprite_symbol_b.png"),

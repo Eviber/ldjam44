@@ -15,7 +15,7 @@ function gGame:init()
 	for i = 1, 10 do
 		local x = i > 5 and 450 or 150
 		local y = 380 + (i-1)%5 * 80
-		tick_tab[i] = Button:create(x, y, 67, 67, btn.untick, btn.tick, false, true, 10, 32)
+		tick_tab[i] = Button:create(x, y, 67*4, 67, btn.untick, btn.tick, false, true, 10, 32)
 	end
 end
 

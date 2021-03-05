@@ -14,15 +14,15 @@ function Button:create(x, y, w, h, img, imgclicked, f, tick, offx, offy)
 	btn.imgclicked = imgclicked
 	btn.f = f
 	btn.tick = tick
-	btn.offsetx = offx
-	btn.offsety = offy
+	btn.offsetx = offx or 0
+	btn.offsety = offy or 0
 	return btn
 end
 
 function Button:ishover()
 	local x,y = TLfres.getMousePosition(W,H)
-	x = x - (self.offsetx or 0)
-	y = y - (self.offsety or 0)
+	x = x - self.offsetx
+	y = y - self.offsety
 	return x > self.x and x < self.x + self.w and y > self.y and y < self.y + self.h
 end
 
@@ -52,9 +52,13 @@ function Button:onrelease()
 end
 
 function Button:draw()
+	lg.setColor(1,1,1)
 	if self.imgclicked and self.clicked and (self:ishover() or self.tick) then
 		lg.draw(self.imgclicked, self.x, self.y)
 	elseif self.img then
 		lg.draw(self.img, self.x, self.y)
 	end
+	--lg.setColor(0,1,0)
+	--lg.rectangle("line", self.x + self.offsetx, self.y + self.offsety, self.w, self.h)
+	--lg.setColor(1,1,1)
 end
